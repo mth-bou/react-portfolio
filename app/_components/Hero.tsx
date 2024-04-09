@@ -4,6 +4,8 @@ import Image from "next/image";
 import {cn} from "@/lib/utils";
 import GithubIcon from "@/app/_components/icons/GithubIcon";
 import Link from "next/link";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
 
 const Code = ({className, ...props}: ComponentPropsWithoutRef<"span">) => {
     return <span
@@ -17,18 +19,32 @@ const Code = ({className, ...props}: ComponentPropsWithoutRef<"span">) => {
 const Hero = () => {
     return (
         <Section className="flex max-lg:flex-col items-start gap-4">
-            <div className="flex-[3] flex flex-col gap-2 w-full">
+            <div className="flex-[3] flex flex-col gap-3 w-full">
                 <h2 className="font-caption font-bold text-5xl text-primary">Mathieu Boucher</h2>
-                <h3 className="font-caption text-3xl">Software Developer</h3>
+                <h3 className="font-caption text-3xl">Ingénieur logiciel</h3>
                 <p className="text-base">
-                    lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua on {" "}
-                    <Link href="https://github.com/mth-bou" target="_blank">
-                        <Code className="inline-flex items-center">
-                            <GithubIcon size={16} className="inline mr-1"/> Web
-                        </Code>
-                    </Link>
+                    Diplômé d'ingénierie informatique, je conçois et développe des applications web et
+                    mobiles innovantes, modernes et réactives.<br />
                 </p>
+                {/*<Link href="https://github.com/mth-bou" target="_blank">
+                    <Code className="inline-flex items-center mr-auto">
+                        <GithubIcon size={16} className="inline mr-1"/>PHP
+                    </Code>
+                </Link>*/}
+                <div className="inline-flex items-center gap-2">
+                    <Code className="inline-flex items-center">
+                        <FontAwesomeIcon icon={faPhp} size="2xl" />
+                    </Code>
+                    <Code className="inline-flex items-center">
+                        <FontAwesomeIcon icon={faSymfony} size="2xl" />
+                    </Code>
+                    <Code className="inline-flex items-center">
+                        <FontAwesomeIcon icon={faReact} size="2xl" />
+                    </Code>
+                    <Code className="inline-flex items-center">
+                        <FontAwesomeIcon icon={faSquareJs} size="2xl" />
+                    </Code>
+                </div>
             </div>
             <div className="flex-[2] max-lg:m-auto flex justify-center">
                 <img

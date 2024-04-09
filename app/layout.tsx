@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="fr" className="h-full">
     <WelcomeConsoleMessage />
       <body className={cn(
           GeistSans.variable,

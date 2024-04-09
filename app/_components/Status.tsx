@@ -3,10 +3,12 @@ import React from 'react';
 import Section from "@/app/_components/Section";
 import {Card} from "@/components/ui/card";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faSymfony, faGithub, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faSymfony, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
 import {ArrowUpRight} from "lucide-react";
+import {faSignal} from "@fortawesome/free-solid-svg-icons";
 
 const Status = () => {
 
@@ -68,7 +70,10 @@ const ContactCard = (props: {
     description: string
 }) => {
     return (
-        <Card className="p-3 bg-accent/10 hover:bg-accent/50 transition-colors group flex items-center gap-4">
+        <Link
+            href="https://www.linkedin.com/in/mathieu-boucher-9b4578198/"
+            className="p-3 bg-accent/10 hover:bg-accent/50 transition-colors group flex items-center gap-4 rounded"
+        >
             <div className="relative">
                 <img src={props.image} alt={props.name} className="w-10 h-10 rounded-full object-contain" />
                 <img src={props.mediumImage} alt={props.name} className="w-4 h-4 bg-foreground absolute -bottom-1 -right-1 rounded-full object-contain" />
@@ -81,13 +86,13 @@ const ContactCard = (props: {
                 <p className="text-md text-muted-foreground">{props.description}</p>
             </div>
             <ArrowUpRight size={16} className="mr-3 text-accent-foreground group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
-        </Card>
+        </Link>
     );
 }
 
 const SIDE_PROJECTS: SideProjectsProps[] = [
     {
-        logo: faSymfony,
+        logo: faCartShopping,
         title: "Symfony Ecom App",
         description: "I wanted to test my skills, so I built my own e-commerce website with Symfony 7",
         url: "https://github.com/mth-bou/ecom"
@@ -95,14 +100,14 @@ const SIDE_PROJECTS: SideProjectsProps[] = [
     {
         logo: faGithub,
         title: "Githreads",
-        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        description: "Application that displays a feed of posts that users can like and comment on, once they've authenticated themselves with Github. Built with Next.js and React.",
         url: "https://githreads-mthb.vercel.app/"
     },
     {
-        logo: faReact,
-        title: "Githreads",
-        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-        url: "/"
+        logo: faSignal,
+        title: "Ping Stability Test",
+        description: "Application designed with Next.js and React that lets you test the stability of your ping to a remote host",
+        url: "https://github.com/mth-bou/ping-stability-test"
     }
 ];
 
