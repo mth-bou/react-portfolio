@@ -15,7 +15,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="sticky top-0 py-4">
+        <header className="top-0 py-4">
             <Section className="flex items-baseline">
                 <h1 className="text-2xl font-bold">{url}</h1>
                 <div className="flex-1"></div>

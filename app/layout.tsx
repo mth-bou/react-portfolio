@@ -4,6 +4,7 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { cn } from "@/lib/utils";
+import {WelcomeConsoleMessage} from "@/app/_components/WelcomeConsoleMessage";
 
 const NotoSans = Noto_Sans({
   subsets: ["latin"] ,
@@ -22,6 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+    <WelcomeConsoleMessage />
       <body className={cn(
           GeistSans.variable,
           GeistMono.variable,
