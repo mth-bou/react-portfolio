@@ -2,10 +2,11 @@
 import React from 'react';
 import Section from "@/app/_components/Section";
 import {Card} from "@/components/ui/card";
-import {LucideIcon} from "lucide-react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faSymfony, faGithub, faReact } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
+import {Badge} from "@/components/ui/badge";
+import {ArrowUpRight} from "lucide-react";
 
 const Status = () => {
 
@@ -14,15 +15,8 @@ const Status = () => {
 
             <div className="flex-[3] w-full">
                 <Card className="w-full flex flex-col gap-2 p-4">
-                    Side projects
-                </Card>
-            </div>
+                    <p className="text-lg text-muted-foreground mb-2">Side, fun projects</p>
 
-            <div className="flex-[2] w-full h-full flex flex-col gap-4">
-                <Card className="flex-1 p-4 w-full">
-                    <p className="text-lg text-muted-foreground mb-2">
-                        Side, fun projects
-                    </p>
                     <div className="flex flex-col gap-4">
                         {SIDE_PROJECTS.map((project, index) => (
                             <SideProjects
@@ -35,9 +29,31 @@ const Status = () => {
                         ))}
                     </div>
                 </Card>
+            </div>
+
+            <div className="flex-[2] w-full h-full flex flex-col gap-4">
+                <Card className="flex-1 p-4 w-full">
+                    <p className="text-lg text-muted-foreground mb-2">Experiences</p>
+
+                    <div className="flex flex-col gap-4">
+                        {WORKS.map((work, index) => (
+                            <Work
+                                key={index}
+                                {...work}
+                            />
+                        ))}
+                    </div>
+
+                </Card>
 
                 <Card className="flex-1 p-4 w-full">
-                    Contact me
+                    <p className="text-lg text-muted-foreground mb-2">Contact me</p>
+                    <ContactCard
+                        name="Mathieu Boucher"
+                        image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
+                        mediumImage="/img/linkedin-icon.svg"
+                        description=""
+                    />
                 </Card>
             </div>
 
@@ -45,21 +61,48 @@ const Status = () => {
     );
 };
 
-const SIDE_PROJECTS = [
+const ContactCard = (props: {
+    image: string,
+    mediumImage: string,
+    name: string,
+    description: string
+}) => {
+    return (
+        <Card className="p-3 bg-accent/10 hover:bg-accent/50 transition-colors group flex items-center gap-4">
+            <div className="relative">
+                <img src={props.image} alt={props.name} className="w-10 h-10 rounded-full object-contain" />
+                <img src={props.mediumImage} alt={props.name} className="w-4 h-4 absolute -bottom-1 -right-1 rounded-full object-contain" />
+            </div>
+            <div className="mr-auto">
+                <div className="flex items-center gap-2">
+                    <p className="text-md font-semibold">{props.name}</p>
+
+                </div>
+                <p className="text-md text-muted-foreground">{props.description}</p>
+            </div>
+            <ArrowUpRight size={16} className="mr-3 text-accent-foreground group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
+        </Card>
+    );
+}
+
+const SIDE_PROJECTS: SideProjectsProps[] = [
     {
         logo: faSymfony,
         title: "Symfony Ecom App",
-        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        url: "/"
     },
     {
         logo: faGithub,
         title: "Githreads",
-        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        url: "/"
     },
     {
         logo: faReact,
         title: "Githreads",
-        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        url: "/"
     }
 ];
 
@@ -72,7 +115,7 @@ type SideProjectsProps = {
 
 const SideProjects = (props: SideProjectsProps) => {
     return (
-        <Link href={props.url} className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded">
+        <Link href={props.url} className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 px-2 rounded">
             <span className="bg-accent text-accent-foreground p-3 rounded-sm">
                 <FontAwesomeIcon icon={props.logo} size="lg" />
             </span>
@@ -81,6 +124,73 @@ const SideProjects = (props: SideProjectsProps) => {
                 <p className="text-md font-semibold">{props.title}</p>
                 <p className="text-md text-muted-foreground">{props.description}</p>
             </div>
+        </Link>
+    );
+}
+
+const WORKS: WorkProps[] = [
+    {
+        image: "https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo",
+        title: "Clinic Renaissance",
+        role: "Web Developer",
+        date: "2021 - 2023",
+        url: "/"
+    },
+    {
+        image: "https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo",
+        title: "Likome Website",
+        role: "Web Developer",
+        date: "2023",
+        url: "/",
+        freelance: true
+    },
+    {
+        image: "https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo",
+        title: "Osteocar Website",
+        role: "Web Developer",
+        date: "2022",
+        url: "/",
+        freelance: true
+    },
+    {
+        image: "https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo",
+        title: "HappyVap",
+        role: "Web Developer",
+        date: "2020 - 2021",
+        url: "/"
+    },
+];
+
+type WorkProps = {
+    image: string;
+    title: string;
+    role: string;
+    date: string;
+    url: string;
+    freelance?: boolean;
+}
+
+const Work = (props: WorkProps) => {
+    return (
+        <Link href={props.url} className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded px-2">
+
+            <img src={props.image} alt={props.title} className="w-10 h-10 object-contain rounded-md" />
+
+            <div className="mr-auto">
+                <div className="flex items-center gap-2">
+                    <p className="text-md font-semibold">{props.title}</p>
+                    {props.freelance && (
+                        <Badge
+                            className="bg-primary/30 text-primary ml-1 p-1 rounded-sm text-xs"
+                            variant="outline"
+                        >
+                            Mission
+                        </Badge>
+                    )}
+                </div>
+                <p className="text-md text-muted-foreground">{props.role}</p>
+            </div>
+            <p className="text-xs text-end text-muted-foreground">{props.date}</p>
         </Link>
     );
 }

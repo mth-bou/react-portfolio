@@ -12,6 +12,8 @@ export default function Home() {
             <Hero/>
             <Spacing size="md" />
             <Status />
+            <Spacing size="md" />
+
         </main>
     );
 }
