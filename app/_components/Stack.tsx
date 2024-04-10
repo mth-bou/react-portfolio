@@ -18,7 +18,7 @@ const Stack = () => {
                 Ma stack technique ...
             </h2>
 
-            <div className="w-50 inline-flex items-center m-auto gap-10">
+            <div className="inline-flex flex-wrap items-center m-auto gap-10">
                 <TooltipIcon IconComponent={PhpIcon} content="PHP" />
                 <TooltipIcon IconComponent={SymfonyIcon} content="Symfony" />
                 <TooltipIcon IconComponent={ReactIcon} content="React" />

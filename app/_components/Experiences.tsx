@@ -8,7 +8,7 @@ import {faCartShopping, faSignal} from "@fortawesome/free-solid-svg-icons";
 import {SideProjects, SideProjectsProps} from "@/app/_components/SideProjects";
 import {Work, WorkProps} from "@/app/_components/Work";
 
-const Status = () => {
+const Experiences = () => {
 
     return (
         <Section className="flex max-lg:flex-col items-start gap-4">
@@ -46,13 +46,21 @@ const Status = () => {
 
                 </Card>
 
-                <Card className="flex-1 p-4 w-full">
-                    <p className="text-lg text-muted-foreground mb-2">Me contacter</p>
+                <Card className="flex-1 flex flex-col gap-4 p-4 w-full">
+                    <p className="text-lg text-muted-foreground">Me contacter</p>
                     <ContactCard
                         name="Mathieu Boucher"
                         image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
                         mediumImage="/img/linkedin-icon.svg"
                         description=""
+                        url="https://www.linkedin.com/in/mathieu-boucher-9b4578198/"
+                    />
+                    <ContactCard
+                        name="mathieu.boucher55@gmail.com"
+                        image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
+                        mediumImage="/img/google-gmail.svg"
+                        description=""
+                        url="mailto:mathieu.boucher55@gmail.com"
                     />
                 </Card>
             </div>
@@ -115,4 +123,4 @@ const WORKS: WorkProps[] = [
     },
 ];
 
-export default Status;
+export default Experiences;

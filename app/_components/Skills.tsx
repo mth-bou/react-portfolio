@@ -1,8 +1,6 @@
 import React from 'react';
 import Section from "@/app/_components/Section";
 import {Badge} from "@/components/ui/badge";
-import PhpIcon from "@/app/_components/icons/PhpIcon";
-import ReactIcon from "@/app/_components/icons/ReactIcon";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSymfony, faPhp, faReact} from "@fortawesome/free-brands-svg-icons";
 
