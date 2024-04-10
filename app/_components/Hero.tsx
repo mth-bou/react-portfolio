@@ -7,7 +7,7 @@ import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
 
-const Code = ({className, ...props}: ComponentPropsWithoutRef<"span">) => {
+export const SkillBadge = ({className, ...props}: ComponentPropsWithoutRef<"span">) => {
     return <span
         className={cn(
             "bg-accent/30 font-mono text-primary border border-accent px-1 py-0.5 rounded-sm hover:bg-accent/50 transition-colors",
@@ -27,23 +27,23 @@ const Hero = () => {
                     mobiles innovantes, modernes et réactives.<br />
                 </p>
                 {/*<Link href="https://github.com/mth-bou" target="_blank">
-                    <Code className="inline-flex items-center mr-auto">
+                    <SkillBadge className="inline-flex items-center mr-auto">
                         <GithubIcon size={16} className="inline mr-1"/>PHP
-                    </Code>
+                    </SkillBadge>
                 </Link>*/}
                 <div className="inline-flex items-center gap-2">
-                    <Code className="inline-flex items-center">
+                    <SkillBadge className="inline-flex items-center">
                         <FontAwesomeIcon icon={faPhp} size="2xl" />
-                    </Code>
-                    <Code className="inline-flex items-center">
+                    </SkillBadge>
+                    <SkillBadge className="inline-flex items-center">
                         <FontAwesomeIcon icon={faSymfony} size="2xl" />
-                    </Code>
-                    <Code className="inline-flex items-center">
+                    </SkillBadge>
+                    <SkillBadge className="inline-flex items-center">
                         <FontAwesomeIcon icon={faReact} size="2xl" />
-                    </Code>
-                    <Code className="inline-flex items-center">
+                    </SkillBadge>
+                    <SkillBadge className="inline-flex items-center">
                         <FontAwesomeIcon icon={faSquareJs} size="2xl" />
-                    </Code>
+                    </SkillBadge>
                 </div>
             </div>
             <div className="flex-[2] max-lg:m-auto flex justify-center">

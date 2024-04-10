@@ -8,7 +8,7 @@ const Skills = () => {
             <Badge variant="outline" className="text-2xl bg-card">Skills</Badge>
 
             <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-                I love working on ...
+                J'aime travailler sur ...
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

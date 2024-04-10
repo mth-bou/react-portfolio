@@ -9,7 +9,6 @@ const LinkedinIcon = (props: ComponentPropsWithoutRef<"svg"> & {size?: number}) 
                     fill="currentColor"></path>
             </g>
         </svg>
-
     );
 };
 
