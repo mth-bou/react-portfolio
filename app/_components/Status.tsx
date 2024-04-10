@@ -3,7 +3,7 @@ import React from 'react';
 import Section from "@/app/_components/Section";
 import {Card} from "@/components/ui/card";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faSymfony, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
@@ -94,19 +94,19 @@ const SIDE_PROJECTS: SideProjectsProps[] = [
     {
         logo: faCartShopping,
         title: "Symfony Ecom App",
-        description: "I wanted to test my skills, so I built my own e-commerce website with Symfony 7",
+        description: "Pour tester mes compétences, j'ai créé mon propre site e-commerce avec Symfony 7",
         url: "https://github.com/mth-bou/ecom"
     },
     {
         logo: faGithub,
         title: "Githreads",
-        description: "Application that displays a feed of posts that users can like and comment on, once they've authenticated themselves with Github. Built with Next.js and React.",
+        description: "Application qui affiche un flux de posts que les utilisateurs peuvent aimer et commenter, une fois qu'ils se sont authentifiés auprès de Github. Développée avec Next.js et React.",
         url: "https://githreads-mthb.vercel.app/"
     },
     {
         logo: faSignal,
         title: "Ping Stability Test",
-        description: "Application designed with Next.js and React that lets you test the stability of your ping to a remote host",
+        description: "Application qui vous permet de tester la stabilité de votre ping vers un hôte distant. Conçue avec Next.js et React.",
         url: "https://github.com/mth-bou/ping-stability-test"
     }
 ];

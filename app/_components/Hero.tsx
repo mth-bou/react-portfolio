@@ -1,20 +1,8 @@
-import React, {ComponentPropsWithoutRef} from 'react';
+import React from 'react';
 import Section from "@/app/_components/Section";
-import Image from "next/image";
-import {cn} from "@/lib/utils";
-import GithubIcon from "@/app/_components/icons/GithubIcon";
-import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
-
-export const SkillBadge = ({className, ...props}: ComponentPropsWithoutRef<"span">) => {
-    return <span
-        className={cn(
-            "bg-accent/30 font-mono text-primary border border-accent px-1 py-0.5 rounded-sm hover:bg-accent/50 transition-colors",
-            className
-        )} {...props}
-    />;
-}
+import SkillBadge from "@/app/_components/SkillBadge";
 
 const Hero = () => {
     return (

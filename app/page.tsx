@@ -5,6 +5,7 @@ import Status from "@/app/_components/Status";
 import Skills from "@/app/_components/Skills";
 import Technos from "@/app/_components/Technos";
 import Tools from "@/app/_components/Tools";
+import Footer from "@/app/_components/Footer";
 
 export default function Home() {
     return (
@@ -20,6 +21,8 @@ export default function Home() {
             <Technos />
             <Spacing size="md" />
             <Tools />
+            <Spacing size="md" />
+            <Footer />
         </main>
     );
 }

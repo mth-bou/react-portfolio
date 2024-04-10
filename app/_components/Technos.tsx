@@ -1,9 +1,5 @@
 import React from 'react';
-import {Badge} from "@/components/ui/badge";
 import Section from "@/app/_components/Section";
-import {SkillBadge} from "@/app/_components/Hero";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPhp} from "@fortawesome/free-brands-svg-icons";
 import SymfonyIcon from "@/app/_components/icons/SymfonyIcon";
 import ReactIcon from "@/app/_components/icons/ReactIcon";
 import NextJsIcon from "@/app/_components/icons/NextJsIcon";
@@ -12,6 +8,7 @@ import JavascriptIcon from "@/app/_components/icons/JavascriptIcon";
 import PhpIcon from "@/app/_components/icons/PhpIcon";
 import TypescriptIcon from "@/app/_components/icons/TypescriptIcon";
 import TooltipIcon from "@/app/_components/TooltipIcon";
+import TailwindCssIcon from "@/app/_components/icons/TailwindCssIcon";
 
 const Technos = () => {
     return (
@@ -29,6 +26,7 @@ const Technos = () => {
                 <TooltipIcon IconComponent={NodeJsIcon} content="NodeJS" />
                 <TooltipIcon IconComponent={JavascriptIcon} content="Javascript" />
                 <TooltipIcon IconComponent={TypescriptIcon} content="Typescript" />
+                <TooltipIcon IconComponent={TailwindCssIcon} content="Tailwind CSS" />
             </div>
         </Section>
     );
