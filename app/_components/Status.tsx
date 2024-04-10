@@ -2,13 +2,11 @@
 import React from 'react';
 import Section from "@/app/_components/Section";
 import {Card} from "@/components/ui/card";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
-import {Badge} from "@/components/ui/badge";
-import {ArrowUpRight} from "lucide-react";
-import {faSignal} from "@fortawesome/free-solid-svg-icons";
+import {ContactCard} from "@/app/_components/ContactCard";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import {faCartShopping, faSignal} from "@fortawesome/free-solid-svg-icons";
+import {SideProjects, SideProjectsProps} from "@/app/_components/SideProjects";
+import {Work, WorkProps} from "@/app/_components/Work";
 
 const Status = () => {
 
@@ -63,33 +61,6 @@ const Status = () => {
     );
 };
 
-const ContactCard = (props: {
-    image: string,
-    mediumImage: string,
-    name: string,
-    description: string
-}) => {
-    return (
-        <Link
-            href="https://www.linkedin.com/in/mathieu-boucher-9b4578198/"
-            className="p-3 bg-accent/10 hover:bg-accent/50 transition-colors group flex items-center gap-4 rounded"
-        >
-            <div className="relative">
-                <img src={props.image} alt={props.name} className="w-10 h-10 rounded-full object-contain" />
-                <img src={props.mediumImage} alt={props.name} className="w-4 h-4 bg-foreground absolute -bottom-1 -right-1 rounded-full object-contain" />
-            </div>
-            <div className="mr-auto">
-                <div className="flex items-center gap-2">
-                    <p className="text-md font-semibold">{props.name}</p>
-
-                </div>
-                <p className="text-md text-muted-foreground">{props.description}</p>
-            </div>
-            <ArrowUpRight size={16} className="mr-3 text-accent-foreground group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
-        </Link>
-    );
-}
-
 const SIDE_PROJECTS: SideProjectsProps[] = [
     {
         logo: faCartShopping,
@@ -110,32 +81,6 @@ const SIDE_PROJECTS: SideProjectsProps[] = [
         url: "https://github.com/mth-bou/ping-stability-test"
     }
 ];
-
-type SideProjectsProps = {
-    logo: any;
-    title: string;
-    description: string;
-    url: string;
-}
-
-const SideProjects = (props: SideProjectsProps) => {
-    return (
-        <Link
-            href={props.url}
-            target="_blank"
-            className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-2 rounded"
-        >
-            <span className="bg-accent text-accent-foreground p-3 rounded-sm">
-                <FontAwesomeIcon icon={props.logo} size="lg" />
-            </span>
-
-            <div>
-                <p className="text-md font-semibold">{props.title}</p>
-                <p className="text-md text-muted-foreground">{props.description}</p>
-            </div>
-        </Link>
-    );
-}
 
 const WORKS: WorkProps[] = [
     {
@@ -169,43 +114,5 @@ const WORKS: WorkProps[] = [
         url: "",
     },
 ];
-
-type WorkProps = {
-    image: string;
-    title: string;
-    role: string;
-    date: string;
-    url: string;
-    freelance?: boolean;
-}
-
-const Work = (props: WorkProps) => {
-    return (
-        <Link
-            href={props.url}
-            className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded px-2"
-            target="_blank"
-        >
-
-            <img src={props.image} alt={props.title} className="w-10 h-10 object-contain rounded-md" />
-
-            <div className="mr-auto">
-                <div className="flex items-center gap-2">
-                    <p className="text-md font-semibold">{props.title}</p>
-                    {props.freelance && (
-                        <Badge
-                            className="bg-primary/30 text-primary ml-1 p-1 rounded-sm text-xs"
-                            variant="outline"
-                        >
-                            Mission
-                        </Badge>
-                    )}
-                </div>
-                <p className="text-md text-muted-foreground">{props.role}</p>
-            </div>
-            <p className="text-xs text-end text-muted-foreground">{props.date}</p>
-        </Link>
-    );
-}
 
 export default Status;
