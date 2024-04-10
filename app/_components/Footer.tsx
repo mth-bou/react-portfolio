@@ -9,8 +9,11 @@ const Footer = () => {
                 <span className="block text-sm sm:text-center">Conçu et développé
                     par Mathieu Boucher avec {" "}
                     <SkillBadge className="inline-flex items-center">
+                        React
+                    </SkillBadge> / {" "}
+                    <SkillBadge className="inline-flex items-center">
                         Next.js
-                    </SkillBadge>et {" "}
+                    </SkillBadge> / {" "}
                     <SkillBadge className="inline-flex items-center">
                         Tailwind CSS
                     </SkillBadge>

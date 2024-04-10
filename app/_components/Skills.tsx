@@ -1,74 +1,49 @@
 import React from 'react';
 import Section from "@/app/_components/Section";
 import {Badge} from "@/components/ui/badge";
+import PhpIcon from "@/app/_components/icons/PhpIcon";
+import ReactIcon from "@/app/_components/icons/ReactIcon";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSymfony, faPhp, faReact} from "@fortawesome/free-brands-svg-icons";
 
 const Skills = () => {
     return (
         <Section className="flex flex-col items-start gap-4">
-            <Badge variant="outline" className="text-2xl bg-card">Skills</Badge>
+            <Badge variant="outline" className="text-2xl bg-card">Compétences</Badge>
 
-            <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+            {/*<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 J'aime travailler sur ...
-            </h2>
+            </h2>*/}
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="grid gap-4">
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt=""/>
+            <div className="flex max-md:flex-col gap-4">
+                <div>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                        <FontAwesomeIcon icon={faPhp} size="2xl" className="text-primary"/>
                     </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt=""/>
-                    </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt=""/>
-                    </div>
+                    <h3 className="text-2xl font-semibold tracking-tight">Marketing</h3>
+                    <p className="text-md text-muted-foreground">Plan it, create it, launch it. Collaborate seamlessly
+                        with all the organization and hit your marketing goals every month with our marketing plan.</p>
                 </div>
-                <div className="grid gap-4">
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt=""/>
+                <div>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                        <FontAwesomeIcon icon={faSymfony} size="2xl" className="text-primary"/>
                     </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt=""/>
-                    </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt=""/>
-                    </div>
+                    <h3 className="text-2xl font-semibold tracking-tight">Legal</h3>
+                    <p className="text-md text-muted-foreground">Protect your organization, devices and stay compliant
+                        with
+                        our structured workflows and custom permissions made for you.</p>
                 </div>
-                <div className="grid gap-4">
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt=""/>
+                <div>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                        <FontAwesomeIcon icon={faReact} size="2xl" className="text-primary"/>
                     </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt=""/>
-                    </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt=""/>
-                    </div>
-                </div>
-                <div className="grid gap-4">
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt=""/>
-                    </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt=""/>
-                    </div>
-                    <div>
-                        <img className="h-auto max-w-full rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt=""/>
-                    </div>
+                    <h3 className="text-2xl font-semibold tracking-tight">Business Automation</h3>
+                    <p className="text-md text-muted-foreground">Auto-assign tasks, send Slack messages, and much more.
+                        Now
+                        power up with hundreds of new templates to help you get started.</p>
                 </div>
             </div>
+
         </Section>
     );
 };

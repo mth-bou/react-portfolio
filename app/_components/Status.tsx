@@ -17,7 +17,7 @@ const Status = () => {
 
             <div className="flex-[3] w-full">
                 <Card className="w-full flex flex-col gap-2 p-4">
-                    <p className="text-lg text-muted-foreground mb-2">Side, fun projects</p>
+                    <p className="text-lg text-muted-foreground mb-2">Projets secondaires</p>
 
                     <div className="flex flex-col gap-4">
                         {SIDE_PROJECTS.map((project, index) => (
@@ -35,7 +35,7 @@ const Status = () => {
 
             <div className="flex-[2] w-full h-full flex flex-col gap-4">
                 <Card className="flex-1 p-4 w-full gap-2">
-                    <p className="text-lg text-muted-foreground mb-2">Experiences</p>
+                    <p className="text-lg text-muted-foreground mb-2">Expériences</p>
 
                     <div className="flex flex-col gap-4">
                         {WORKS.map((work, index) => (
@@ -49,7 +49,7 @@ const Status = () => {
                 </Card>
 
                 <Card className="flex-1 p-4 w-full">
-                    <p className="text-lg text-muted-foreground mb-2">Contact me</p>
+                    <p className="text-lg text-muted-foreground mb-2">Me contacter</p>
                     <ContactCard
                         name="Mathieu Boucher"
                         image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"

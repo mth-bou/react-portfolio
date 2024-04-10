@@ -16,7 +16,7 @@ const Tools = () => {
 
             <div className="inline-flex items-center m-auto gap-10">
                 <TooltipIcon IconComponent={GitIcon} content="Git" />
-                <TooltipIcon IconComponent={GithubIcon} content="Github" />
+                <TooltipIcon IconComponent={GithubIcon} content="Github" color="#000000" />
                 <TooltipIcon IconComponent={GithubActionsIcon} content="Github Actions" />
                 <TooltipIcon IconComponent={PostmanIcon} content="Postman" />
             </div>

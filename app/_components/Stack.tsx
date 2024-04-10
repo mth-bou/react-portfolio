@@ -10,12 +10,12 @@ import TypescriptIcon from "@/app/_components/icons/TypescriptIcon";
 import TooltipIcon from "@/app/_components/TooltipIcon";
 import TailwindCssIcon from "@/app/_components/icons/TailwindCssIcon";
 
-const Technos = () => {
+const Stack = () => {
     return (
         <Section className="flex flex-col items-start gap-4">
 
             <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-                Mes technos ...
+                Ma stack technique ...
             </h2>
 
             <div className="w-50 inline-flex items-center m-auto gap-10">
@@ -32,4 +32,4 @@ const Technos = () => {
     );
 };
 
-export default Technos;
+export default Stack;
