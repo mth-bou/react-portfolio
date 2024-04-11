@@ -9,16 +9,23 @@ import PhpIcon from "@/app/_components/icons/PhpIcon";
 import TypescriptIcon from "@/app/_components/icons/TypescriptIcon";
 import TooltipIcon from "@/app/_components/TooltipIcon";
 import TailwindCssIcon from "@/app/_components/icons/TailwindCssIcon";
+import SassIcon from "@/app/_components/icons/SassIcon";
+import HtmlIcon from "@/app/_components/icons/HtmlIcon";
+import CssIcon from "@/app/_components/icons/CssIcon";
+import PostgreIcon from "@/app/_components/icons/PostgreIcon";
+import {Badge} from "@/components/ui/badge";
 
 const Stack = () => {
     return (
-        <Section className="flex flex-col items-start gap-4">
+        <Section className="flex flex-col items-center gap-4">
 
-            <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+            <Badge variant="outline" className="text-2xl bg-card">Ma stack technique</Badge>
+
+            {/*<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 Ma stack technique ...
-            </h2>
+            </h2>*/}
 
-            <div className="inline-flex flex-wrap items-center m-auto gap-10">
+            <div className="inline-flex flex-wrap items-center m-auto justify-center w-3/4 lg:w-1/2 gap-10 py-4">
                 <TooltipIcon IconComponent={PhpIcon} content="PHP" />
                 <TooltipIcon IconComponent={SymfonyIcon} content="Symfony" />
                 <TooltipIcon IconComponent={ReactIcon} content="React" />
@@ -27,6 +34,10 @@ const Stack = () => {
                 <TooltipIcon IconComponent={JavascriptIcon} content="Javascript" />
                 <TooltipIcon IconComponent={TypescriptIcon} content="Typescript" />
                 <TooltipIcon IconComponent={TailwindCssIcon} content="Tailwind CSS" />
+                <TooltipIcon IconComponent={HtmlIcon} content="HTML" />
+                <TooltipIcon IconComponent={CssIcon} content="CSS" />
+                <TooltipIcon IconComponent={SassIcon} content="Sass" />
+                <TooltipIcon IconComponent={PostgreIcon} content="PostgreSQL" />
             </div>
         </Section>
     );

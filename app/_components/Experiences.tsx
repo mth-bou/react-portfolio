@@ -19,13 +19,7 @@ const Experiences = () => {
 
                     <div className="flex flex-col gap-4">
                         {SIDE_PROJECTS.map((project, index) => (
-                            <SideProjects
-                                key={index}
-                                logo={project.logo}
-                                title={project.title}
-                                description={project.description}
-                                url={project.url}
-                            />
+                            <SideProjects key={index} {...project} />
                         ))}
                     </div>
                 </Card>
@@ -37,10 +31,7 @@ const Experiences = () => {
 
                     <div className="flex flex-col gap-4">
                         {WORKS.map((work, index) => (
-                            <Work
-                                key={index}
-                                {...work}
-                            />
+                            <Work key={index} {...work} />
                         ))}
                     </div>
 
