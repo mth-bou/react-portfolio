@@ -1,6 +1,6 @@
 import React from 'react';
-import {Badge} from "@/components/ui/badge";
 import Section from "@/app/_components/Section";
+import {Badge} from "@/components/ui/badge";
 import {ContactCard} from "@/app/_components/ContactCard";
 
 const Contact = () => {

@@ -1,11 +1,11 @@
 import React from 'react';
+import {Badge} from "@/components/ui/badge";
 import TooltipIcon from "@/app/_components/TooltipIcon";
 import Section from "@/app/_components/Section";
 import GitIcon from "@/app/_components/icons/GitIcon";
 import GithubIcon from "@/app/_components/icons/GithubIcon";
 import GithubActionsIcon from "@/app/_components/icons/GithubActionsIcon";
 import PostmanIcon from "@/app/_components/icons/PostmanIcon";
-import {Badge} from "@/components/ui/badge";
 import GitlabIcon from "@/app/_components/icons/GitlabIcon";
 import JenkinsIcon from "@/app/_components/icons/JenkinsIcon";
 import WordpressIcon from "@/app/_components/icons/WordpressIcon";
@@ -18,15 +18,15 @@ import FigmaIcon from "@/app/_components/icons/FigmaIcon";
 
 const Tools = () => {
     return (
-        <Section className="flex flex-col items-center gap-4">
+        <Section className="flex flex-col items-start md:items-center gap-4 md:gap-8">
 
-            <Badge variant="outline" className="text-2xl bg-card">Mes outils</Badge>
+            <Badge variant="outline" className="text-xl md:text-2xl bg-card">Mes outils</Badge>
 
             {/*<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 ... Et mes outils
             </h2>*/}
 
-            <div className="inline-flex flex-wrap items-center m-auto w-3/4 lg:w-1/2 gap-10 py-4">
+            <div className="inline-flex flex-wrap items-center justify-center m-auto w-full sm:w-3/4 lg:w-1/2 gap-10 py-4">
                 <TooltipIcon IconComponent={GitIcon} content="Git" />
                 <TooltipIcon IconComponent={GithubIcon} content="Github" color="#000000" />
                 <TooltipIcon IconComponent={GithubActionsIcon} content="Github Actions" />

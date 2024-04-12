@@ -18,7 +18,7 @@ export default function Home() {
             <Experiences/>
             <Spacing size="md"/>
             <Skills/>
-            <Spacing size="lg"/>
+            <Spacing size="md"/>
             <Stack/>
             <Spacing size="md"/>
             <Tools/>

@@ -1,10 +1,10 @@
 "use client";
 import React, {useEffect, useState} from 'react';
 import Section from "@/app/_components/Section";
-import {buttonVariants} from "@/components/ui/button";
-import GithubIcon from "@/app/_components/icons/GithubIcon";
-import Link from "next/link";
 import {cn} from "@/lib/utils";
+import {buttonVariants} from "@/components/ui/button";
+import Link from "next/link";
+import GithubIcon from "@/app/_components/icons/GithubIcon";
 import LinkedinIcon from "@/app/_components/icons/LinkedinIcon";
 
 const Header = () => {

@@ -1,6 +1,6 @@
+import React from "react";
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import React from "react";
 
 export type SideProjectsProps = {
     logo: any;
@@ -20,8 +20,8 @@ export const SideProjects = (props: SideProjectsProps) => {
             </span>
 
             <div>
-                <p className="text-md font-semibold">{props.title}</p>
-                <p className="text-md text-muted-foreground">{props.description}</p>
+                <p className="text-sm md:text-base font-semibold">{props.title}</p>
+                <p className="text-sm md:text-base text-muted-foreground">{props.description}</p>
             </div>
         </Link>
     );

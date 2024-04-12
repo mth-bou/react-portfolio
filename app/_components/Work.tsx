@@ -1,6 +1,6 @@
+import React from "react";
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
-import React from "react";
 
 export type WorkProps = {
     image: string;
@@ -22,7 +22,7 @@ export const Work = (props: WorkProps) => {
 
             <div className="mr-auto">
                 <div className="flex items-center gap-2">
-                    <p className="text-md font-semibold">{props.title}</p>
+                    <p className="text-sm md:text-base font-semibold">{props.title}</p>
                     {props.freelance && (
                         <Badge
                             className="bg-primary/30 text-primary ml-1 p-1 rounded-sm text-xs"
@@ -32,7 +32,7 @@ export const Work = (props: WorkProps) => {
                         </Badge>
                     )}
                 </div>
-                <p className="text-md text-muted-foreground">{props.role}</p>
+                <p className="text-sm md:text-base text-muted-foreground">{props.role}</p>
             </div>
             <p className="text-xs text-end text-muted-foreground">{props.date}</p>
         </Link>

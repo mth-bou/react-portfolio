@@ -1,6 +1,6 @@
+import React from "react";
 import Link from "next/link";
 import {ArrowUpRight} from "lucide-react";
-import React from "react";
 
 export const ContactCard = (props: {
     image: string,
@@ -21,12 +21,14 @@ export const ContactCard = (props: {
             </div>
             <div className="mr-auto">
                 <div className="flex items-center gap-2">
-                    <p className="text-md font-semibold">{props.name}</p>
+                    <p className="text-sm md:text-base font-semibold">{props.name}</p>
                 </div>
-                <p className="text-md text-muted-foreground">{props.description}</p>
+                <p className="text-sm md:text-base text-muted-foreground">{props.description}</p>
             </div>
-            <ArrowUpRight size={16}
-                          className="mr-3 text-accent-foreground group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform"/>
+            <ArrowUpRight
+                size={16}
+                className="mr-3 text-accent-foreground group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform"
+            />
         </Link>
     );
 }

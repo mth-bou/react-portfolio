@@ -23,6 +23,9 @@ const config = {
       caption: ['var(--font-caption)'],
     },
     extend: {
+      screens: {
+        'xs': '300px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

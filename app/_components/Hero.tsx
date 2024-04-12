@@ -1,15 +1,15 @@
 import React from 'react';
 import Section from "@/app/_components/Section";
+import SkillBadge from "@/app/_components/SkillBadge";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
-import SkillBadge from "@/app/_components/SkillBadge";
 
 const Hero = () => {
     return (
         <Section className="flex max-lg:flex-col items-start gap-4">
             <div className="flex-[3] flex flex-col gap-3 w-full">
-                <h2 className="font-caption font-bold text-5xl text-primary">Mathieu Boucher</h2>
-                <h3 className="font-caption text-3xl">Ingénieur logiciel</h3>
+                <h2 className="font-caption font-bold text-4xl md:text-5xl text-primary">Mathieu Boucher</h2>
+                <h3 className="font-caption text-2xl md:text-3xl">Ingénieur logiciel</h3>
                 <p className="text-base">
                     Diplômé d'ingénierie informatique, je conçois et développe des applications web et
                     mobiles innovantes, modernes et réactives.<br />
