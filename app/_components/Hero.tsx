@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Hero = () => {
     return (
-        <Section className="flex max-lg:flex-col items-start gap-4">
+        <Section className="flex max-lg:flex-col items-start gap-10">
             <div className="flex-[3] flex flex-col gap-3 w-full">
                 <h2 className="font-caption font-bold text-4xl md:text-5xl text-primary">Mathieu Boucher</h2>
                 <h3 className="font-caption text-2xl md:text-3xl">Ingénieur logiciel</h3>
