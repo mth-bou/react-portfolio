@@ -34,13 +34,13 @@ const Experiences = () => {
                         description=""
                         url="https://www.linkedin.com/in/mathieu-boucher-9b4578198/"
                     />
-                    {/*<ContactCard
+                    <ContactCard
                         name="mathieu.boucher55@gmail.com"
                         image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
                         mediumImage="/img/google-gmail.svg"
                         description=""
                         url="mailto:mathieu.boucher55@gmail.com"
-                    />*/}
+                    />
                 </Card>
             </div>
 
