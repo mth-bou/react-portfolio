@@ -14,6 +14,10 @@ import HtmlIcon from "@/app/_components/icons/HtmlIcon";
 import CssIcon from "@/app/_components/icons/CssIcon";
 import PostgreIcon from "@/app/_components/icons/PostgreIcon";
 import {Badge} from "@/components/ui/badge";
+import GraphqlIcon from "@/app/_components/icons/GraphqlIcon";
+import WebpackIcon from "@/app/_components/icons/WebpackIcon";
+import SolidityIcon from "@/app/_components/icons/SolidityIcon";
+import PythonIcon from "@/app/_components/icons/PythonIcon";
 
 const Stack = () => {
     return (
@@ -37,7 +41,10 @@ const Stack = () => {
                 <TooltipIcon IconComponent={HtmlIcon} content="HTML" />
                 <TooltipIcon IconComponent={CssIcon} content="CSS" />
                 <TooltipIcon IconComponent={SassIcon} content="Sass" />
+                <TooltipIcon IconComponent={WebpackIcon} content="Webpack" />
                 <TooltipIcon IconComponent={PostgreIcon} content="PostgreSQL" />
+                <TooltipIcon IconComponent={GraphqlIcon} content="GraphQL" />
+                <TooltipIcon IconComponent={SolidityIcon} content="Solidity" />
             </div>
         </Section>
     );

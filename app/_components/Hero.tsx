@@ -27,10 +27,10 @@ const Hero = () => {
                         <FontAwesomeIcon icon={faSymfony} size="2xl" />
                     </SkillBadge>
                     <SkillBadge className="inline-flex items-center">
-                        <FontAwesomeIcon icon={faReact} size="2xl" />
+                        <FontAwesomeIcon icon={faSquareJs} size="2xl" />
                     </SkillBadge>
                     <SkillBadge className="inline-flex items-center">
-                        <FontAwesomeIcon icon={faSquareJs} size="2xl" />
+                        <FontAwesomeIcon icon={faReact} size="2xl" />
                     </SkillBadge>
                 </div>
             </div>

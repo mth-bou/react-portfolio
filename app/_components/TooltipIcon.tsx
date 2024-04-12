@@ -2,18 +2,20 @@ import React from "react";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 
 type TooltipIconProps = {
-    IconComponent: React.ComponentType<{size?: number, color?: string}>;
+    IconComponent?: React.ComponentType<{size?: number, color?: string}>;
     content: string;
+    path?: string;
     size?: number;
     color?: string;
 }
 
-const TooltipIcon = ({IconComponent, content, size = 70, color}: TooltipIconProps) => {
+const TooltipIcon = ({IconComponent, content, path, size = 70, color}: TooltipIconProps) => {
     return (
         <TooltipProvider>
             <Tooltip>
-                <TooltipTrigger asChild>
-                    <IconComponent size={size} color={color} />
+                <TooltipTrigger>
+                    {IconComponent && <IconComponent size={size} color={color} />}
+                    {path && <img src={path} alt={content} width={size} height={size} />}
                 </TooltipTrigger>
                 <TooltipContent>
                     <p>{content}</p>
