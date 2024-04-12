@@ -1,5 +1,5 @@
 import React from 'react';
-import SkillBadge from "@/app/_components/SkillBadge";
+import SkillBadge from "@/app/[lang]/components/SkillBadge";
 
 const Footer = () => {
     return (

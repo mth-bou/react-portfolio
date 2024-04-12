@@ -1,0 +1,62 @@
+{
+  "Home": {
+    "title": "Home",
+    "description": "Welcome to the home page"
+  },
+  "Hero": {
+    "h3": "Ingénieur logiciel",
+    "desc": "Diplômé d'ingénierie informatique, je conçois et développe des applications web et mobiles innovantes, modernes et réactives."
+  },
+  "Experiences": {
+    "experienceCard": {
+      "title": "Expériences"
+    },
+    "contactCard": {
+      "title": "Me contacter"
+    },
+    "sideProjectsCard": {
+      "title": "Projets secondaires",
+      "symfonyProject": {
+        "title": "Symfony Ecom App",
+        "desc": "Pour tester mes compétences, j'ai créé mon propre site e-commerce avec Symfony 7"
+      },
+      "githreadsProject": {
+        "title": "Githreads",
+        "desc": "Application qui affiche un flux de posts que les utilisateurs peuvent aimer et commenter, une fois qu'ils se sont authentifiés auprès de Github. Développée avec Next.js et React."
+      },
+      "pingProject": {
+        "title": "Ping stability test",
+        "desc": "Application qui vous permet de tester la stabilité de votre ping vers un hôte distant. Conçue avec Next.js et React."
+      }
+    }
+  },
+  "Skills": {
+    "title": "Ce sur quoi je travaille",
+    "backend": {
+      "title": "Développement Web Backend",
+      "desc": "Je développe des solutions backend robustes et sécurisées, conçues pour des logiciels évolutifs et durables."
+    },
+    "frontend": {
+      "title": "Développement Web Frontend",
+      "desc": "Je crée des interfaces frontend dynamiques et intuitives, optimisées pour une expérience utilisateur fluide et engageante."
+    },
+    "automation": {
+      "title": "Automatisation",
+      "desc": "J'aime développer des automatisations de tâches qui améliorent l'efficacité et la productivité, tout en permettant aux utilisateurs de gagner du temps."
+    },
+    "data": {
+      "title": "Traitement de données",
+      "desc": "L'extraction, la manipulation, le traitement, l'analyse et l'interprétation de données font partie des composantes que j'apprécie."
+    },
+    "security": {
+      "title": "Sécurité",
+      "desc": "La sécurité des systèmes numériques étant une préoccupation fondamentale, je veille à ce que les solutions que je développe soient protégées."
+    }
+  },
+  "Stack": {
+    "title": "Ma stack technique"
+  },
+  "Tools": {
+    "title": "Mes outils"
+  }
+}

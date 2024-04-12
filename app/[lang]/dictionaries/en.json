@@ -1,0 +1,62 @@
+{
+  "Home": {
+    "title": "Home",
+    "description": "Welcome to the home page"
+  },
+  "Hero": {
+    "h3": "Software Engineer",
+    "desc": "With a degree in computer engineering, I design and develop innovative and mobile applications."
+  },
+  "Experiences": {
+    "experienceCard": {
+      "title": "Experiences"
+    },
+    "contactCard": {
+      "title": "Contact me"
+    },
+    "sideProjectsCard": {
+      "title": "Side projects",
+      "symfonyProject": {
+        "title": "Symfony Ecom App",
+        "desc": "To test my skills, I created my own e-commerce site with Symfony 7"
+      },
+      "githreadsProject": {
+        "title": "Githreads",
+        "desc": "Application that displays a stream of posts that users can like and comment on, once they've authenticated with Github. Developed with Next.js and React."
+      },
+      "pingProject": {
+        "title": "Ping stability test",
+        "desc": "Application that lets you test the stability of your ping over time to a remote host. Designed with Next.js and React."
+      }
+    }
+  },
+  "Skills": {
+    "title": "I like working on",
+    "backend": {
+        "title": "Web backend development",
+        "desc": "I develop backend solutions solutions, designed for scalable, long-lasting software."
+    },
+    "frontend": {
+        "title": "Web frontend development",
+        "desc": "I create dynamic, responsive and user-friendly interfaces optimized for a fluid and engaging user experience."
+    },
+    "automation": {
+        "title": "Automation",
+        "desc": "I love developing task automation that improve efficiency and productivity, while saving time for users."
+    },
+    "data": {
+        "title": "Data processing",
+        "desc": "Extracting, manipulating, processing, analyzing and interpreting data are some of the components I enjoy."
+    },
+    "security": {
+        "title": "Security",
+        "desc": "As the security of digital systems is a fundamental concern, I make sure that the solutions I develop are protected."
+    }
+  },
+  "Stack": {
+    "title": "My stack"
+  },
+  "Tools": {
+    "title": "My tools"
+  }
+}
