@@ -3,6 +3,7 @@ import Section from "@/app/_components/Section";
 import SkillBadge from "@/app/_components/SkillBadge";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
 
 const Hero = () => {
     return (
@@ -35,10 +36,10 @@ const Hero = () => {
                 </div>
             </div>
             <div className="flex-[2] max-lg:m-auto flex justify-center">
-                <img
+                <Image
                     src="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
+                    alt="Mathieu Boucher's picture"
                     className="w-full h-auto rounded-full max-w-56 max-md:w-30"
-                    alt="Mathieu Boucher picture"
                     width={400}
                     height={400}
                 />

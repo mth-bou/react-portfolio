@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
+import Image from "next/image";
 
 export type WorkProps = {
     image: string;
@@ -18,7 +19,7 @@ export const Work = (props: WorkProps) => {
             target="_blank"
         >
 
-            <img src={props.image} alt={props.title} className="w-10 h-10 object-contain rounded-md"/>
+            <Image src={props.image} alt={props.title} width={40} height={40} className="object-contain rounded-md"/>
 
             <div className="mr-auto">
                 <div className="flex items-center gap-2">

@@ -2,7 +2,7 @@ import React from 'react';
 import Section from "@/app/_components/Section";
 import {Badge} from "@/components/ui/badge";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSymfony, faPhp, faReact} from "@fortawesome/free-brands-svg-icons";
+import {faSymfony, faReact} from "@fortawesome/free-brands-svg-icons";
 import {faGroupArrowsRotate, faShieldHalved, faTableList} from "@fortawesome/free-solid-svg-icons";
 
 const Skills = () => {

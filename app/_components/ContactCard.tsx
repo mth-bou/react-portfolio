@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import {ArrowUpRight} from "lucide-react";
+import Image from "next/image";
 
 export const ContactCard = (props: {
     image: string,
@@ -15,9 +16,8 @@ export const ContactCard = (props: {
             className="p-3 bg-accent/10 hover:bg-accent/50 transition-colors group flex items-center gap-4 rounded w-full"
         >
             <div className="relative">
-                <img src={props.image} alt={props.name} className="w-10 h-10 rounded-full object-contain"/>
-                <img src={props.mediumImage} alt={props.name}
-                     className="w-4 h-4 bg-foreground absolute -bottom-1 -right-1 rounded-full object-contain"/>
+                <Image src={props.image} alt={props.name} width={40} height={40} className="rounded-full object-contain"/>
+                <Image src={props.mediumImage} alt={props.name} width={16} height={16} className="bg-foreground absolute -bottom-1 -right-1 rounded-full object-contain"/>
             </div>
             <div className="mr-auto">
                 <div className="flex items-center gap-2">
