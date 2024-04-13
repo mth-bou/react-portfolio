@@ -15,6 +15,7 @@ import AtlassianIcon from "@/app/[lang]/components/icons/AtlassianIcon";
 import GoogleCloudIcon from "@/app/[lang]/components/icons/GoogleCloudIcon";
 import DockerIcon from "@/app/[lang]/components/icons/DockerIcon";
 import FigmaIcon from "@/app/[lang]/components/icons/FigmaIcon";
+import FirebaseIcon from "@/public/img/firebase.svg";
 
 const Tools = () => {
     return (
@@ -33,7 +34,7 @@ const Tools = () => {
                 <TooltipIcon IconComponent={GitlabIcon} content="Gitlab" />
                 <TooltipIcon IconComponent={PostmanIcon} content="Postman" />
                 <TooltipIcon IconComponent={JenkinsIcon} content="Jenkins" />
-                <TooltipIcon path="/img/firebase.svg" content="Firebase" />
+                <TooltipIcon path={FirebaseIcon} content="Firebase" />
                 <TooltipIcon IconComponent={JetbrainsIcon} content="Jetbrains" />
                 <TooltipIcon IconComponent={AtlassianIcon} content="Atlassian" />
                 <TooltipIcon IconComponent={DockerIcon} content="Docker" />

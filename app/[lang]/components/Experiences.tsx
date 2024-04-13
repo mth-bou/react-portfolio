@@ -7,6 +7,9 @@ import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {faCartShopping, faSignal} from "@fortawesome/free-solid-svg-icons";
 import {SideProjects, SideProjectsProps} from "@/app/[lang]/components/SideProjects";
 import {Work, WorkProps} from "@/app/[lang]/components/Work";
+import LikomeIcon from '@/public/img/favicon-likome.svg';
+import LinkedinIcon from '@/public/img/linkedin-icon.svg';
+import GmailIcon from '@/public/img/google-gmail.svg';
 
 const Experiences = ({ dict, lang }: {dict: any, lang: string}) => {
 
@@ -30,14 +33,14 @@ const Experiences = ({ dict, lang }: {dict: any, lang: string}) => {
                     <ContactCard
                         name="Mathieu Boucher"
                         image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
-                        mediumImage="/img/linkedin-icon.svg"
+                        mediumImage={LinkedinIcon}
                         description=""
                         url="https://www.linkedin.com/in/mathieu-boucher-9b4578198/"
                     />
                     <ContactCard
                         name="mathieu.boucher55@gmail.com"
                         image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
-                        mediumImage="/img/google-gmail.svg"
+                        mediumImage={GmailIcon}
                         description=""
                         url="mailto:mathieu.boucher55@gmail.com"
                     />
@@ -90,7 +93,7 @@ const WORKS: WorkProps[] = [
         url: "https://clinic-renaissance.fr"
     },
     {
-        image: "/img/favicon-likome.svg",
+        image: LikomeIcon,
         title: "Likome Website",
         role: "Web Developer",
         date: "2023",
