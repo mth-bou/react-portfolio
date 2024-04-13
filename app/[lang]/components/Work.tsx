@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import {Badge} from "@/components/ui/badge";
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 
 export type WorkProps = {
-    image: string;
+    image: string | StaticImageData
     title: string;
     role: string;
     date: string;
