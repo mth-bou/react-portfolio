@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
 
-const Hero = ({ dict, lang }: {dict: any, lang: string}) => {
+const Hero = ({ dict }: {dict: any }) => {
     return (
         <Section className="flex max-lg:flex-col items-start gap-10">
             <div className="flex-[3] flex flex-col gap-3 w-full">

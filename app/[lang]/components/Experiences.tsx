@@ -3,15 +3,14 @@ import React from 'react';
 import Section from "@/app/[lang]/components/Section";
 import {Card} from "@/components/ui/card";
 import {ContactCard} from "@/app/[lang]/components/ContactCard";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
-import {faCartShopping, faSignal} from "@fortawesome/free-solid-svg-icons";
-import {SideProjects, SideProjectsProps} from "@/app/[lang]/components/SideProjects";
-import {Work, WorkProps} from "@/app/[lang]/components/Work";
-import LikomeIcon from '@/public/img/favicon-likome.svg';
+import {SideProjects} from "@/app/[lang]/components/SideProjects";
+import {Work} from "@/app/[lang]/components/Work";
+import { SIDE_PROJECTS } from "@/constants/sideProjects";
+import { WORKS } from "@/constants/works";
 import LinkedinIcon from '@/public/img/linkedin-icon.svg';
 import GmailIcon from '@/public/img/google-gmail.svg';
 
-const Experiences = ({ dict, lang }: {dict: any, lang: string}) => {
+const Experiences = ({ dict }: {dict: any}) => {
 
     const sideProjects = SIDE_PROJECTS(dict);
 
@@ -64,59 +63,5 @@ const Experiences = ({ dict, lang }: {dict: any, lang: string}) => {
         </Section>
     );
 };
-
-const SIDE_PROJECTS = (dict: any) => [
-    {
-        logo: faCartShopping,
-        title: "Symfony Ecom App",
-        description: dict.Experiences.sideProjectsCard.symfonyProject.desc,
-        url: "https://github.com/mth-bou/ecom"
-    },
-    {
-        logo: faGithub,
-        title: "Githreads",
-        description: dict.Experiences.sideProjectsCard.githreadsProject.desc,
-        url: "https://githreads-mthb.vercel.app/"
-    },
-    {
-        logo: faSignal,
-        title: "Ping Stability Test",
-        description: dict.Experiences.sideProjectsCard.pingProject.desc,
-        url: "https://github.com/mth-bou/ping-stability-test"
-    }
-];
-
-const WORKS: WorkProps[] = [
-    {
-        image: "/img/logo-cr.jpg",
-        title: "Clinic Renaissance",
-        role: "Web Developer",
-        date: "2021 - 2023",
-        url: "https://clinic-renaissance.fr"
-    },
-    {
-        image: LikomeIcon,
-        title: "Likome Website",
-        role: "Web Developer",
-        date: "2023",
-        url: "https://likome.fr",
-        freelance: true
-    },
-    {
-        image: "/img/logo-osteocar.png",
-        title: "Osteocar Website",
-        role: "Web Developer",
-        date: "2022",
-        url: "https://osteocar-osteopathie.fr/",
-        freelance: true
-    },
-    {
-        image: "/img/favicon-happyvap.ico",
-        title: "HappyVap",
-        role: "Web Developer",
-        date: "2020 - 2021",
-        url: "",
-    },
-];
 
 export default Experiences;

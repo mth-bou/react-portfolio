@@ -16,9 +16,9 @@ export default async function Home({params}: any) {
         <main>
             <Header/>
             <Spacing size="md"/>
-            <Hero dict={dict} lang={lang} />
+            <Hero dict={dict} />
             <Spacing size="md"/>
-            <Experiences dict={dict} lang={lang} />
+            <Experiences dict={dict} />
             <Spacing size="md"/>
             <Skills dict={dict} />
             <Spacing size="md"/>
