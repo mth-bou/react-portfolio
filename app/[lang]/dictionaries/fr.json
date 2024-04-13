@@ -58,5 +58,8 @@
   },
   "Tools": {
     "title": "Mes outils"
+  },
+  "Footer": {
+    "copyright": "Conçu et développé par Mathieu Boucher avec"
   }
 }

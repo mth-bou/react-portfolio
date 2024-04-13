@@ -20,15 +20,15 @@ export default async function Home({params}: any) {
             <Spacing size="md"/>
             <Experiences dict={dict} lang={lang} />
             <Spacing size="md"/>
-            <Skills/>
+            <Skills dict={dict} />
             <Spacing size="md"/>
-            <Stack/>
+            <Stack dict={dict} />
             <Spacing size="md"/>
-            <Tools/>
+            <Tools dict={dict} />
             <Spacing size="md"/>
             {/*<Contact/>
             <Spacing size="md"/>*/}
-            <Footer/>
+            <Footer dict={dict} />
         </main>
     );
 }

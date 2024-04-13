@@ -13,6 +13,8 @@ import GmailIcon from '@/public/img/google-gmail.svg';
 
 const Experiences = ({ dict, lang }: {dict: any, lang: string}) => {
 
+    const sideProjects = SIDE_PROJECTS(dict);
+
     return (
         <Section className="flex max-lg:flex-col items-start gap-4">
 
@@ -52,7 +54,7 @@ const Experiences = ({ dict, lang }: {dict: any, lang: string}) => {
                     <p className="text-base lg:text-lg text-muted-foreground mb-2">{dict.Experiences.sideProjectsCard.title}</p>
 
                     <div className="flex flex-col gap-4">
-                        {SIDE_PROJECTS.map((project, index) => (
+                        {sideProjects.map((project, index) => (
                             <SideProjects key={index} {...project} />
                         ))}
                     </div>
@@ -63,23 +65,23 @@ const Experiences = ({ dict, lang }: {dict: any, lang: string}) => {
     );
 };
 
-const SIDE_PROJECTS: SideProjectsProps[] = [
+const SIDE_PROJECTS = (dict: any) => [
     {
         logo: faCartShopping,
         title: "Symfony Ecom App",
-        description: "Pour tester mes compétences, j'ai créé mon propre site e-commerce avec Symfony 7",
+        description: dict.Experiences.sideProjectsCard.symfonyProject.desc,
         url: "https://github.com/mth-bou/ecom"
     },
     {
         logo: faGithub,
         title: "Githreads",
-        description: "Application qui affiche un flux de posts que les utilisateurs peuvent aimer et commenter, une fois qu'ils se sont authentifiés auprès de Github. Développée avec Next.js et React.",
+        description: dict.Experiences.sideProjectsCard.githreadsProject.desc,
         url: "https://githreads-mthb.vercel.app/"
     },
     {
         logo: faSignal,
         title: "Ping Stability Test",
-        description: "Application qui vous permet de tester la stabilité de votre ping vers un hôte distant. Conçue avec Next.js et React.",
+        description: dict.Experiences.sideProjectsCard.pingProject.desc,
         url: "https://github.com/mth-bou/ping-stability-test"
     }
 ];

@@ -58,5 +58,8 @@
   },
   "Tools": {
     "title": "My tools"
+  },
+  "Footer": {
+    "copyright": "Designed and built by Mathieu Boucher with"
   }
 }

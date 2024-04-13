@@ -18,11 +18,11 @@ import GraphqlIcon from "@/app/[lang]/components/icons/GraphqlIcon";
 import WebpackIcon from "@/app/[lang]/components/icons/WebpackIcon";
 import SolidityIcon from "@/app/[lang]/components/icons/SolidityIcon";
 
-const Stack = () => {
+const Stack = ({ dict }: {dict: any}) => {
     return (
         <Section className="flex flex-col items-start md:items-center gap-4 md:gap-8">
 
-            <Badge variant="outline" className="text-xl md:text-2xl bg-card">Ma stack technique</Badge>
+            <Badge variant="outline" className="text-xl md:text-2xl bg-card">{dict.Stack.title}</Badge>
 
             {/*<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 Ma stack technique ...
