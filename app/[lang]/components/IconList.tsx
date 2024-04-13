@@ -22,7 +22,13 @@ const IconList = ({ iconList, title }: IconListProps) => {
                     <React.Fragment key={index}>
                         {icon.IconComponent && <TooltipIcon IconComponent={icon.IconComponent} content={icon.content} />}
                         {icon.path && <TooltipIcon path={icon.path} content={icon.content} />}
-                        <Tooltip id={icon.content + 'Icon'} />
+                        <Tooltip
+                            id={icon.content + 'Icon'}
+                            style={{
+                                backgroundColor: "hsl(var(--primary))",
+                                color: "hsl(var(--primary-foreground))"
+                            }}
+                        />
                     </React.Fragment>
                 ))}
             </div>
