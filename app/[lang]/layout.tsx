@@ -6,6 +6,8 @@ import {GeistMono} from "geist/font/mono";
 import {cn} from "@/lib/utils";
 import {WelcomeConsoleMessage} from "@/app/[lang]/components/WelcomeConsoleMessage";
 import {ReactNode} from "react";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const NotoSans = Noto_Sans({
     subsets: ["latin"],
@@ -32,13 +34,17 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
     return (
         <html lang={lang} className="h-full">
-        <WelcomeConsoleMessage/>
-        <body className={cn(
-            GeistSans.variable,
-            GeistMono.variable,
-            NotoSans.variable,
-            "font-sans h-full bg-background text-foreground"
-        )}>{children}</body>
+            <body className={cn(
+                GeistSans.variable,
+                GeistMono.variable,
+                NotoSans.variable,
+                "font-sans h-full bg-background text-foreground"
+            )}>
+                {children}
+                <Analytics />
+                <SpeedInsights />
+                <WelcomeConsoleMessage/>
+            </body>
         </html>
     );
 }
