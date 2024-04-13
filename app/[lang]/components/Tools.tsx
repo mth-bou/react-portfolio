@@ -17,7 +17,7 @@ import GoogleCloudIcon from "@/app/[lang]/components/icons/GoogleCloudIcon";
 import DockerIcon from "@/app/[lang]/components/icons/DockerIcon";
 import FigmaIcon from "@/app/[lang]/components/icons/FigmaIcon";
 import FirebaseIcon from "@/public/img/firebase.svg";
-import {Tooltip} from "react-tooltip";
+import IconList from "@/app/[lang]/components/IconList";
 
 const Tools = ({ dict }: { dict: any }) => {
 
@@ -38,25 +38,7 @@ const Tools = ({ dict }: { dict: any }) => {
         { IconComponent: PrestashopIcon, content: "Prestashop" },
     ];
 
-    return (
-        <Section className="flex flex-col items-start md:items-center gap-4 md:gap-8">
-
-            <Badge variant="outline" className="text-xl md:text-2xl bg-card">{dict.Tools.title}</Badge>
-
-            {/*<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-                ... Et mes outils
-            </h2>*/}
-
-            <div className="inline-flex flex-wrap items-center justify-center m-auto w-full sm:w-3/4 lg:w-1/2 gap-10 py-4">
-                {iconList.map((icon, index) => (
-                    <React.Fragment key={index}>
-                        <TooltipIcon IconComponent={icon.IconComponent} content={icon.content} />
-                        <Tooltip id={icon.content + 'Icon'} />
-                    </React.Fragment>
-                ))}
-            </div>
-        </Section>
-    );
+    return <IconList iconList={iconList} title={dict.Tools.title} />;
 };
 
 export default Tools;

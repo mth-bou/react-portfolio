@@ -1,9 +1,5 @@
 "use client";
 import React from 'react';
-import Section from "@/app/[lang]/components/Section";
-import {Badge} from "@/components/ui/badge";
-import {Tooltip} from "react-tooltip";
-import TooltipIcon from "@/app/[lang]/components/TooltipIcon";
 import SymfonyIcon from "@/app/[lang]/components/icons/SymfonyIcon";
 import ReactIcon from "@/app/[lang]/components/icons/ReactIcon";
 import NextJsIcon from "@/app/[lang]/components/icons/NextJsIcon";
@@ -19,6 +15,7 @@ import PostgreIcon from "@/app/[lang]/components/icons/PostgreIcon";
 import GraphqlIcon from "@/app/[lang]/components/icons/GraphqlIcon";
 import WebpackIcon from "@/app/[lang]/components/icons/WebpackIcon";
 import SolidityIcon from "@/app/[lang]/components/icons/SolidityIcon";
+import IconList from "@/app/[lang]/components/IconList";
 
 const Stack = ({ dict }: {dict: any}) => {
 
@@ -40,25 +37,7 @@ const Stack = ({ dict }: {dict: any}) => {
         { IconComponent: SolidityIcon, content: "Solidity" },
     ];
 
-    return (
-        <Section className="flex flex-col items-start md:items-center gap-4 md:gap-8">
-
-            <Badge variant="outline" className="text-xl md:text-2xl bg-card">{dict.Stack.title}</Badge>
-
-            {/*<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-                Ma stack technique ...
-            </h2>*/}
-
-            <div className="inline-flex flex-wrap items-center m-auto justify-center w-full sm:w-3/4 lg:w-1/2 gap-10 py-4">
-                {iconList.map((icon, index) => (
-                    <React.Fragment key={index}>
-                        <TooltipIcon IconComponent={icon.IconComponent} content={icon.content} />
-                        <Tooltip id={icon.content + 'Icon'} />
-                    </React.Fragment>
-                ))}
-            </div>
-        </Section>
-    );
+    return <IconList iconList={iconList} title={dict.Stack.title} />;
 };
 
 export default Stack;
