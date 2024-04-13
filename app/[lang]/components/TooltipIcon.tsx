@@ -1,5 +1,4 @@
 import React from "react";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import Image from "next/image";
 
 type TooltipIconProps = {
@@ -12,17 +11,14 @@ type TooltipIconProps = {
 
 const TooltipIcon = ({IconComponent, content, path, size = 60, color}: TooltipIconProps) => {
     return (
-        <TooltipProvider>
-            <Tooltip>
-                <TooltipTrigger>
-                    {IconComponent && <IconComponent size={size} color={color} />}
-                    {path && <Image src={path} alt={content} width={size} height={size} />}
-                </TooltipTrigger>
-                <TooltipContent>
-                    <p>{content}</p>
-                </TooltipContent>
-            </Tooltip>
-        </TooltipProvider>
+        <a
+            data-tooltip-id={content + 'Icon'}
+            data-tooltip-content={content}
+            data-tooltip-place="top"
+        >
+            {IconComponent && <IconComponent size={size} color={color}/>}
+            {path && <Image src={path} alt={content} width={size} height={size}/>}
+        </a>
     );
 };
 

@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import {Badge} from "@/components/ui/badge";
 import TooltipIcon from "@/app/[lang]/components/TooltipIcon";
@@ -16,8 +17,27 @@ import GoogleCloudIcon from "@/app/[lang]/components/icons/GoogleCloudIcon";
 import DockerIcon from "@/app/[lang]/components/icons/DockerIcon";
 import FigmaIcon from "@/app/[lang]/components/icons/FigmaIcon";
 import FirebaseIcon from "@/public/img/firebase.svg";
+import {Tooltip} from "react-tooltip";
 
 const Tools = ({ dict }: { dict: any }) => {
+
+    const iconList = [
+        { IconComponent: GitIcon, content: "Git" },
+        { IconComponent: GithubIcon, content: "Github" },
+        { IconComponent: GithubActionsIcon, content: "Github Actions" },
+        { IconComponent: GitlabIcon, content: "Gitlab" },
+        { IconComponent: PostmanIcon, content: "Postman" },
+        { IconComponent: JenkinsIcon, content: "Jenkins" },
+        { path: FirebaseIcon, content: "Firebase" },
+        { IconComponent: JetbrainsIcon, content: "Jetbrains" },
+        { IconComponent: AtlassianIcon, content: "Atlassian" },
+        { IconComponent: DockerIcon, content: "Docker" },
+        { IconComponent: GoogleCloudIcon, content: "Google Cloud" },
+        { IconComponent: FigmaIcon, content: "Figma" },
+        { IconComponent: WordpressIcon, content: "Wordpress" },
+        { IconComponent: PrestashopIcon, content: "Prestashop" },
+    ];
+
     return (
         <Section className="flex flex-col items-start md:items-center gap-4 md:gap-8">
 
@@ -28,20 +48,12 @@ const Tools = ({ dict }: { dict: any }) => {
             </h2>*/}
 
             <div className="inline-flex flex-wrap items-center justify-center m-auto w-full sm:w-3/4 lg:w-1/2 gap-10 py-4">
-                <TooltipIcon IconComponent={GitIcon} content="Git" />
-                <TooltipIcon IconComponent={GithubIcon} content="Github" color="#000000" />
-                <TooltipIcon IconComponent={GithubActionsIcon} content="Github Actions" />
-                <TooltipIcon IconComponent={GitlabIcon} content="Gitlab" />
-                <TooltipIcon IconComponent={PostmanIcon} content="Postman" />
-                <TooltipIcon IconComponent={JenkinsIcon} content="Jenkins" />
-                <TooltipIcon path={FirebaseIcon} content="Firebase" />
-                <TooltipIcon IconComponent={JetbrainsIcon} content="Jetbrains" />
-                <TooltipIcon IconComponent={AtlassianIcon} content="Atlassian" />
-                <TooltipIcon IconComponent={DockerIcon} content="Docker" />
-                <TooltipIcon IconComponent={GoogleCloudIcon} content="Google Cloud" />
-                <TooltipIcon IconComponent={FigmaIcon} content="Figma" />
-                <TooltipIcon IconComponent={WordpressIcon} content="Wordpress" />
-                <TooltipIcon IconComponent={PrestashopIcon} content="Prestashop" />
+                {iconList.map((icon, index) => (
+                    <React.Fragment key={index}>
+                        <TooltipIcon IconComponent={icon.IconComponent} content={icon.content} />
+                        <Tooltip id={icon.content + 'Icon'} />
+                    </React.Fragment>
+                ))}
             </div>
         </Section>
     );
