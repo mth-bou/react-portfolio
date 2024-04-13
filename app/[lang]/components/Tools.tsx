@@ -1,8 +1,5 @@
 "use client";
 import React from 'react';
-import {Badge} from "@/components/ui/badge";
-import TooltipIcon from "@/app/[lang]/components/TooltipIcon";
-import Section from "@/app/[lang]/components/Section";
 import GitIcon from "@/app/[lang]/components/icons/GitIcon";
 import GithubIcon from "@/app/[lang]/components/icons/GithubIcon";
 import GithubActionsIcon from "@/app/[lang]/components/icons/GithubActionsIcon";
