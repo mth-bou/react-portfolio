@@ -1,19 +1,17 @@
 import React from 'react';
-import Section from "@/app/_components/Section";
-import SkillBadge from "@/app/_components/SkillBadge";
+import Section from "@/app/[lang]/components/Section";
+import SkillBadge from "@/app/[lang]/components/SkillBadge";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
 
-const Hero = () => {
+const Hero = ({ dict }: {dict: any }) => {
     return (
         <Section className="flex max-lg:flex-col items-start gap-10">
             <div className="flex-[3] flex flex-col gap-3 w-full">
                 <h2 className="font-caption font-bold text-4xl md:text-5xl text-primary">Mathieu Boucher</h2>
-                <h3 className="font-caption text-2xl md:text-3xl">Ingénieur logiciel</h3>
-                <p className="text-base">
-                    Diplômé d'ingénierie informatique, je conçois et développe des applications web et
-                    mobiles innovantes, modernes et réactives.<br />
+                <h3 className="font-caption text-2xl md:text-3xl">{dict.Hero.h3}</h3>
+                <p className="text-base">{dict.Hero.desc}<br />
                 </p>
                 {/*<Link href="https://github.com/mth-bou" target="_blank">
                     <SkillBadge className="inline-flex items-center mr-auto">

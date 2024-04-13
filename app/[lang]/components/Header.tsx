@@ -1,13 +1,14 @@
 // "use client";
 import React, {useEffect, useState} from 'react';
-import Section from "@/app/_components/Section";
+import Section from "@/app/[lang]/components/Section";
 import {cn} from "@/lib/utils";
 import {buttonVariants} from "@/components/ui/button";
 import Link from "next/link";
-import GithubIcon from "@/app/_components/icons/GithubIcon";
-import LinkedinIcon from "@/app/_components/icons/LinkedinIcon";
+import GithubIcon from "@/app/[lang]/components/icons/GithubIcon";
+import LinkedinIcon from "@/app/[lang]/components/icons/LinkedinIcon";
+import LanguageDropdown from "@/app/[lang]/components/LanguageDropdown";
 
-const Header = () => {
+const Header = ({ lang }: { lang: string }) => {
     /*const [url, setUrl] = useState('');
 
     useEffect(() => {
@@ -20,6 +21,7 @@ const Header = () => {
                 {/*<h1 className="text-2xl font-bold">{url}</h1>*/}
                 <div className="flex-1"></div>
                 <ul className="flex items-center gap-2">
+                    <LanguageDropdown lang={lang} />
                     <Link
                         href="https://github.com/mth-bou"
                         target="_blank"

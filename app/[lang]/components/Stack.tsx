@@ -1,28 +1,28 @@
 import React from 'react';
-import Section from "@/app/_components/Section";
+import Section from "@/app/[lang]/components/Section";
 import {Badge} from "@/components/ui/badge";
-import SymfonyIcon from "@/app/_components/icons/SymfonyIcon";
-import ReactIcon from "@/app/_components/icons/ReactIcon";
-import NextJsIcon from "@/app/_components/icons/NextJsIcon";
-import NodeJsIcon from "@/app/_components/icons/NodeJsIcon";
-import JavascriptIcon from "@/app/_components/icons/JavascriptIcon";
-import PhpIcon from "@/app/_components/icons/PhpIcon";
-import TypescriptIcon from "@/app/_components/icons/TypescriptIcon";
-import TooltipIcon from "@/app/_components/TooltipIcon";
-import TailwindCssIcon from "@/app/_components/icons/TailwindCssIcon";
-import SassIcon from "@/app/_components/icons/SassIcon";
-import HtmlIcon from "@/app/_components/icons/HtmlIcon";
-import CssIcon from "@/app/_components/icons/CssIcon";
-import PostgreIcon from "@/app/_components/icons/PostgreIcon";
-import GraphqlIcon from "@/app/_components/icons/GraphqlIcon";
-import WebpackIcon from "@/app/_components/icons/WebpackIcon";
-import SolidityIcon from "@/app/_components/icons/SolidityIcon";
+import SymfonyIcon from "@/app/[lang]/components/icons/SymfonyIcon";
+import ReactIcon from "@/app/[lang]/components/icons/ReactIcon";
+import NextJsIcon from "@/app/[lang]/components/icons/NextJsIcon";
+import NodeJsIcon from "@/app/[lang]/components/icons/NodeJsIcon";
+import JavascriptIcon from "@/app/[lang]/components/icons/JavascriptIcon";
+import PhpIcon from "@/app/[lang]/components/icons/PhpIcon";
+import TypescriptIcon from "@/app/[lang]/components/icons/TypescriptIcon";
+import TooltipIcon from "@/app/[lang]/components/TooltipIcon";
+import TailwindCssIcon from "@/app/[lang]/components/icons/TailwindCssIcon";
+import SassIcon from "@/app/[lang]/components/icons/SassIcon";
+import HtmlIcon from "@/app/[lang]/components/icons/HtmlIcon";
+import CssIcon from "@/app/[lang]/components/icons/CssIcon";
+import PostgreIcon from "@/app/[lang]/components/icons/PostgreIcon";
+import GraphqlIcon from "@/app/[lang]/components/icons/GraphqlIcon";
+import WebpackIcon from "@/app/[lang]/components/icons/WebpackIcon";
+import SolidityIcon from "@/app/[lang]/components/icons/SolidityIcon";
 
-const Stack = () => {
+const Stack = ({ dict }: {dict: any}) => {
     return (
         <Section className="flex flex-col items-start md:items-center gap-4 md:gap-8">
 
-            <Badge variant="outline" className="text-xl md:text-2xl bg-card">Ma stack technique</Badge>
+            <Badge variant="outline" className="text-xl md:text-2xl bg-card">{dict.Stack.title}</Badge>
 
             {/*<h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 Ma stack technique ...
