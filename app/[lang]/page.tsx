@@ -14,7 +14,7 @@ export default async function Home({params}: any) {
     const dict = await getDictionary(lang);
     return (
         <main>
-            <Header/>
+            <Header lang={lang} />
             <Spacing size="md"/>
             <Hero dict={dict} />
             <Spacing size="md"/>
