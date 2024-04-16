@@ -16,6 +16,7 @@ import GraphqlIcon from "@/app/[lang]/components/icons/GraphqlIcon";
 import WebpackIcon from "@/app/[lang]/components/icons/WebpackIcon";
 import SolidityIcon from "@/app/[lang]/components/icons/SolidityIcon";
 import IconList from "@/app/[lang]/components/IconList";
+import MySQLIcon from "@/app/[lang]/components/icons/MySQLIcon";
 
 const Stack = ({ dict }: {dict: any}) => {
 
@@ -24,7 +25,7 @@ const Stack = ({ dict }: {dict: any}) => {
         { IconComponent: SymfonyIcon, content: "Symfony" },
         { IconComponent: ReactIcon, content: "React" },
         { IconComponent: NextJsIcon, content: "NextJS" },
-        { IconComponent: NodeJsIcon, content: "NodeJS" },
+        // { IconComponent: NodeJsIcon, content: "NodeJS" },
         { IconComponent: JavascriptIcon, content: "Javascript" },
         { IconComponent: TypescriptIcon, content: "Typescript" },
         { IconComponent: TailwindCssIcon, content: "Tailwind CSS" },
@@ -33,8 +34,9 @@ const Stack = ({ dict }: {dict: any}) => {
         { IconComponent: SassIcon, content: "Sass" },
         { IconComponent: WebpackIcon, content: "Webpack" },
         { IconComponent: PostgreIcon, content: "PostgreSQL" },
-        { IconComponent: GraphqlIcon, content: "GraphQL" },
-        { IconComponent: SolidityIcon, content: "Solidity" },
+        { IconComponent: MySQLIcon, content: "MySQL" },
+        // { IconComponent: GraphqlIcon, content: "GraphQL" },
+        // { IconComponent: SolidityIcon, content: "Solidity" },
     ];
 
     return <IconList iconList={iconList} title={dict.Stack.title} />;

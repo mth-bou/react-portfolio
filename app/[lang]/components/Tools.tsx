@@ -30,7 +30,7 @@ const Tools = ({ dict }: { dict: any }) => {
         { IconComponent: AtlassianIcon, content: "Atlassian" },
         { IconComponent: DockerIcon, content: "Docker" },
         { IconComponent: GoogleCloudIcon, content: "Google Cloud" },
-        { IconComponent: FigmaIcon, content: "Figma" },
+        // { IconComponent: FigmaIcon, content: "Figma" },
         { IconComponent: WordpressIcon, content: "Wordpress" },
         { IconComponent: PrestashopIcon, content: "Prestashop" },
     ];
