@@ -24,6 +24,22 @@
         "title": "Githreads",
         "desc": "Application qui affiche un flux de posts que les utilisateurs peuvent aimer et commenter, une fois qu'ils se sont authentifiés auprès de Github. Développée avec Next.js et React."
       },
+      "taskProject": {
+        "title": "Task Management Webservice",
+        "desc": "Webservice de gestion de tâches qui permet à un client de s'y brancher pour créer, lire, mettre à jour et supprimer des tâches. Conçu avec Node.js, Express.js et MongoDB."
+      },
+      "gameOfLifeProject": {
+        "title": "The game of Life",
+        "desc": "Implémentation du jeu de la vie de Conway avec React et Next.js."
+      },
+      "chatbotProject": {
+        "title": "Chatbot",
+        "desc": "Chatbot qui utilise l'API Chatsonic pour répondre à des prompts. Développé avec React."
+      },
+      "vLilleProject": {
+        "title": "vLille Search Project",
+        "desc": "Application qui affiche le statut des stations de vélos en libre-service de Lille. Développée avec Angular."
+      },
       "pingProject": {
         "title": "Ping stability test",
         "desc": "Application qui vous permet de tester la stabilité de votre ping vers un hôte distant. Conçue avec Next.js et React."
