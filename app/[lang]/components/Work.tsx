@@ -19,7 +19,7 @@ export const Work = (props: WorkProps) => {
             target="_blank"
         >
 
-            <Image src={props.image} alt={props.title} width={40} height={40} className="object-contain rounded-md"/>
+            <Image src={props.image} alt={props.title} className="object-contain rounded-md" style={{ width: '40px', height: 'auto' }} />
 
             <div className="mr-auto">
                 <div className="flex items-center gap-2">

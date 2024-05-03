@@ -12,7 +12,7 @@ import PrestashopIcon from "@/app/[lang]/components/icons/PrestashopIcon";
 import AtlassianIcon from "@/app/[lang]/components/icons/AtlassianIcon";
 import GoogleCloudIcon from "@/app/[lang]/components/icons/GoogleCloudIcon";
 import DockerIcon from "@/app/[lang]/components/icons/DockerIcon";
-import FigmaIcon from "@/app/[lang]/components/icons/FigmaIcon";
+//import FigmaIcon from "@/app/[lang]/components/icons/FigmaIcon";
 import FirebaseIcon from "@/public/img/firebase.svg";
 import IconList from "@/app/[lang]/components/IconList";
 
