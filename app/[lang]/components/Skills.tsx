@@ -16,35 +16,35 @@ const Skills = ({ dict }: { dict: any}) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                 <div className="flex flex-col items-center">
-                    <div className="mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                    <div className="flex justify-center items-center mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
                         <FontAwesomeIcon icon={faSymfony} size="2xl" className="text-primary"/>
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-center">{dict.Skills.backend.title}</h3>
                     <p className="text-sm md:text-base text-muted-foreground text-center">{dict.Skills.backend.desc}</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                    <div className="flex justify-center items-center mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
                         <FontAwesomeIcon icon={faReact} size="2xl" className="text-primary"/>
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-center">{dict.Skills.frontend.title}</h3>
                     <p className="text-sm md:text-base text-muted-foreground text-center">{dict.Skills.frontend.desc}</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                    <div className="flex justify-center items-center mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
                         <FontAwesomeIcon icon={faGroupArrowsRotate} size="2xl" className="text-primary"/>
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-center">{dict.Skills.automation.title}</h3>
                     <p className="text-sm md:text-base text-muted-foreground text-center">{dict.Skills.automation.desc}</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                    <div className="flex justify-center items-center mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
                         <FontAwesomeIcon icon={faTableList} size="2xl" className="text-primary"/>
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-center">{dict.Skills.data.title}</h3>
                     <p className="text-sm md:text-base text-muted-foreground text-center">{dict.Skills.data.desc}</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
+                    <div className="flex justify-center items-center mb-2 w-10 h-10 rounded-full lg:h-12 lg:w-12">
                         <FontAwesomeIcon icon={faShieldHalved} size="2xl" className="text-primary"/>
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-center">{dict.Skills.security.title}</h3>
