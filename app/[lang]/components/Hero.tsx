@@ -4,6 +4,7 @@ import SkillBadge from "@/app/[lang]/components/SkillBadge";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPhp, faReact, faSymfony, faSquareJs} from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
+import ProfilePhoto from "@/public/img/profile-photo.jpg";
 
 const Hero = ({ dict }: {dict: any }) => {
     return (
@@ -33,11 +34,11 @@ const Hero = ({ dict }: {dict: any }) => {
                     </SkillBadge>
                 </div>
             </div>
-            <div className="flex-[2] max-lg:m-auto flex justify-center">
+            <div className="relative flex-[2] max-lg:m-auto flex justify-center overflow-hidden rounded-full max-w-56 max-md:w-30">
                 <Image
-                    src="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
-                    alt="Mathieu Boucher's picture"
-                    className="w-full h-auto rounded-full max-w-56 max-md:w-30"
+                    src={ProfilePhoto}
+                    alt="Mathieu Boucher"
+                    className="w-full h-auto"
                     width={400}
                     height={400}
                 />
