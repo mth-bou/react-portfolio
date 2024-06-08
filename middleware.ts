@@ -22,10 +22,6 @@ export function middleware(request: NextRequest) {
         );
     }
 
-    /*const pathnameHasLocale = i18n.locales.some(
-        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    )*/
-
     const pathnameIsMissingLocale = i18n.locales.every(
         locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     );

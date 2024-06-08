@@ -7,28 +7,32 @@ import Stack from "@/app/[lang]/components/Stack";
 import Tools from "@/app/[lang]/components/Tools";
 import Footer from "@/app/[lang]/components/Footer";
 // import Contact from "@/app/_components/Contact";
-import {getDictionary} from "@/app/[lang]/dictionaries";
+import { getDictionary } from "@/app/[lang]/dictionaries";
+import GithubContributions from "@/app/[lang]/components/github/GithubContributions";
 
-export default async function Home({params}: any) {
-    const {lang} = params;
-    const dict = await getDictionary(lang);
-    return (
-        <main>
-            <Header lang={lang} />
-            <Spacing size="md"/>
-            <Hero dict={dict} />
-            <Spacing size="md"/>
-            <Experiences dict={dict} />
-            <Spacing size="md"/>
-            <Skills dict={dict} />
-            <Spacing size="md"/>
-            <Stack dict={dict} />
-            <Spacing size="md"/>
-            <Tools dict={dict} />
-            <Spacing size="md"/>
-            {/*<Contact/>
+export default async function Home({ params }: any){
+  const { lang } = params;
+  const dict = await getDictionary(lang);
+  const githubUsername = "mth-bou";
+  return (
+    <main>
+      <Header lang={lang}/>
+      <Spacing size="md"/>
+      <Hero dict={dict}/>
+      <Spacing size="md"/>
+      <Experiences dict={dict}/>
+      <Spacing size="md"/>
+      <GithubContributions username={githubUsername} dict={dict}/>
+      <Spacing size="md"/>
+      <Skills dict={dict}/>
+      <Spacing size="md"/>
+      <Stack dict={dict}/>
+      <Spacing size="md"/>
+      <Tools dict={dict}/>
+      <Spacing size="md"/>
+      {/*<Contact/>
             <Spacing size="md"/>*/}
-            <Footer dict={dict} />
-        </main>
-    );
+      <Footer dict={dict}/>
+    </main>
+  );
 }
