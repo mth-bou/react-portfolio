@@ -1,10 +1,11 @@
 import { Octokit } from "octokit";
+import { OpenSourceRepository } from "@/types/types";
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-export const fetchForkedRepositories = async (username: string) => {
+export const fetchForkedRepositories = async (username: string): Promise<OpenSourceRepository[]> => {
   const response = await octokit.request('GET /users/{username}/repos', {
     username,
     headers: {
@@ -16,7 +17,16 @@ export const fetchForkedRepositories = async (username: string) => {
 
   const data = response.data;
 
-  return data.filter((repo: any) => repo.fork);
+  return data
+    .filter((repo: any) => repo.fork)
+    .map((repo: any): OpenSourceRepository => ({
+      id: repo.id,
+      name: repo.name,
+      description: repo.description,
+      html_url: repo.html_url,
+      date: repo.updated_at || repo.created_at,
+      image: repo.owner.avatar_url,
+    }));
 }
 
 export const fetchPullRequests = async (owner: string, repo: string) => {

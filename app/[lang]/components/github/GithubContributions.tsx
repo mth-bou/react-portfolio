@@ -15,7 +15,7 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
     const fetchOpenSourceContributions = async () => {
       try {
         const contributions = await getContributions(username);
-        console.log(contributions);
+        //console.log(contributions);
         setRepos(contributions);
       } catch (error) {
         console.error(error);
