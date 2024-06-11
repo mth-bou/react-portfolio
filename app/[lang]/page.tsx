@@ -1,5 +1,5 @@
 import Header from "@/app/[lang]/components/Header";
-import Hero from "@/app/[lang]/components/Hero";
+import Hero from "@/app/[lang]/components/hero/Hero";
 import Spacing from "@/app/[lang]/components/Spacing";
 import Experiences from "@/app/[lang]/components/Experiences";
 import Skills from "@/app/[lang]/components/Skills";

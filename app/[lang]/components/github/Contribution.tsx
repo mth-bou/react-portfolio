@@ -1,12 +1,11 @@
 import React from 'react';
 import Link from "next/link";
 import { OpenSourceRepository } from "@/types/types";
-import Image from "next/image";
 
 const Contribution = (props: OpenSourceRepository) => {
   return (
     <Link
-      href={props.url}
+      href={props.html_url}
       target="_blank"
       className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-2 rounded"
     >
