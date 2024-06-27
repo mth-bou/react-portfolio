@@ -3,9 +3,18 @@ import LikomeIcon from '@/public/img/favicon-likome.svg';
 import LogoCR from '@/public/img/logo-cr.jpg';
 import LogoOsteocar from '@/public/img/logo-osteocar.png';
 import FaviconHappyvap from '@/public/img/favicon-happyvap.ico';
+import BerealLogo from '@/public/img/bereal.webp';
 
 
 export const WORKS: WorkProps[] = [
+  {
+    image: BerealLogo,
+    title: "Bereal Shopify App",
+    role: "Web Developer",
+    date: "2024",
+    freelance: true,
+    inProgress: true
+  },
   {
     image: LikomeIcon,
     title: "Likome Website",

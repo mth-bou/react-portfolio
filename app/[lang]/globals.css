@@ -24,6 +24,8 @@
         --destructive-foreground: 0 0% 100%;
         --ring: 174 42% 65%;
         --radius: 0.5rem;
+        --warning: 43 100% 50%; /* Couleur orangée */
+        --warning-foreground: 0 0% 100%; /* Texte blanc */
     }
 }
 
