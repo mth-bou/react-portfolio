@@ -9,6 +9,7 @@ import { SIDE_PROJECTS } from "@/constants/sideProjects";
 import { WORKS } from "@/constants/works";
 import LinkedinIcon from '@/public/img/linkedin-icon.svg';
 import GmailIcon from '@/public/img/google-gmail.svg';
+import LinkedinPhoto from "@/public/img/linkedin-photo.jpg";
 
 const Experiences = ({ dict }: {dict: any}) => {
 
@@ -33,14 +34,14 @@ const Experiences = ({ dict }: {dict: any}) => {
                     <p className="text-base lg:text-lg text-muted-foreground mb-2">{dict.Experiences.contactCard.title}</p>
                     <ContactCard
                         name="Mathieu Boucher"
-                        image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
+                        image={LinkedinPhoto}
                         mediumImage={LinkedinIcon}
                         description=""
                         url="https://www.linkedin.com/in/mathieu-boucher-9b4578198/"
                     />
                     <ContactCard
                         name="mathieu.boucher55@gmail.com"
-                        image="https://media.licdn.com/dms/image/C5603AQFSssap-2Gfgg/profile-displayphoto-shrink_400_400/0/1618583076650?e=1718236800&v=beta&t=mkVC0iyiSxeFnVKyFicLmX5ShwVMQTJ6BKdigZKPblo"
+                        image={LinkedinPhoto}
                         mediumImage={GmailIcon}
                         description=""
                         url="mailto:mathieu.boucher55@gmail.com"

@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import {ArrowUpRight} from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 export const ContactCard = (props: {
-    image: string,
-    mediumImage: string,
+    image: StaticImageData | string,
+    mediumImage: StaticImageData | string,
     name: string,
     description: string,
     url: string

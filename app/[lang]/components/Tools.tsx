@@ -15,6 +15,7 @@ import DockerIcon from "@/app/[lang]/components/icons/DockerIcon";
 //import FigmaIcon from "@/app/[lang]/components/icons/FigmaIcon";
 import FirebaseIcon from "@/public/img/firebase.svg";
 import IconList from "@/app/[lang]/components/IconList";
+import ShopifyIcon from "@/app/[lang]/components/icons/ShopifyIcon";
 
 const Tools = ({ dict }: { dict: any }) => {
 
@@ -33,6 +34,7 @@ const Tools = ({ dict }: { dict: any }) => {
         // { IconComponent: FigmaIcon, content: "Figma" },
         { IconComponent: WordpressIcon, content: "Wordpress" },
         { IconComponent: PrestashopIcon, content: "Prestashop" },
+        { IconComponent: ShopifyIcon, content: "Shopify" },
     ];
 
     return <IconList iconList={iconList} title={dict.Tools.title} />;
