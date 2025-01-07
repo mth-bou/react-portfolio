@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 
 type RootLayoutProps = {
     children: ReactNode;
-    params: {lang: string};
+    params: Promise<{ lang: string }>;
 }
 
 export default async function RootLayout({
