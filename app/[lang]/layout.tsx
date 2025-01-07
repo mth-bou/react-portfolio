@@ -1,11 +1,11 @@
-import type {Metadata} from "next";
-import {Noto_Sans} from "next/font/google";
+import type { Metadata } from "next";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
-import {GeistSans} from "geist/font/sans";
-import {GeistMono} from "geist/font/mono";
-import {cn} from "@/lib/utils";
-import {WelcomeConsoleMessage} from "@/app/[lang]/components/WelcomeConsoleMessage";
-import {ReactNode} from "react";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { cn } from "@/lib/utils";
+import { WelcomeConsoleMessage } from "@/app/[lang]/components/WelcomeConsoleMessage";
+import { ReactNode } from "react";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
