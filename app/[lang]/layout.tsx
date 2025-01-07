@@ -28,10 +28,11 @@ type RootLayoutProps = {
     params: {lang: string};
 }
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
-    params: {lang}
+    params
 }: Readonly<RootLayoutProps>) {
+    const { lang } = await params;
     return (
         <html lang={lang} className="h-full">
             <body className={cn(

@@ -11,7 +11,7 @@ import { getDictionary } from "@/app/[lang]/dictionaries";
 import GithubContributions from "@/app/[lang]/components/github/GithubContributions";
 
 export default async function Home({ params }: any){
-  const { lang } = params;
+  const { lang } = await params;
   const dict = await getDictionary(lang);
   const githubUsername = "mth-bou";
   return (
