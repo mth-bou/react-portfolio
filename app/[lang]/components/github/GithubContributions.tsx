@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useEffect, useState } from 'react';
 import { getContributions } from "@/app/[lang]/actions/github";
 import Section from "@/app/[lang]/components/Section";
@@ -15,12 +16,17 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
   useEffect(() => {
     const fetchOpenSourceContributions = async () => {
       try {
-        const data = await getContributions(username);
-        //console.log(contributions);
-        setContributions(data);
+        const result = await getContributions(username);
+
+        if (!result.success) {
+          setError(result.message);
+          setContributions([]);
+        } else {
+          setContributions(result.data || []);
+        }
       } catch (error) {
-        setError("Impossible de charger les contributions");
         console.error(error);
+        setError("Erreur inattendue. Impossible de charger les contributions");
       } finally {
         setLoading(false);
       }
@@ -34,6 +40,13 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
       <div className="flex-[2] w-full h-full flex flex-col gap-4">
         <Card className="flex flex-col p-4 w-full gap-2">
           <p className="text-base lg:text-lg text-muted-foreground mb-2">{dict.Contributions.title}</p>
+
+          {error && (
+            <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-md mb-4">
+              <p className="text-sm md:text-base font-semibold">Erreur :</p>
+              <p className="text-sm md:text-base">{error}</p>
+            </div>
+          )}
 
           <div className="flex flex-col gap-4">
             {loading ? (

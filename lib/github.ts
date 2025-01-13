@@ -104,7 +104,12 @@ const mapToOpenSourceRepository = (repo: any): OpenSourceRepository => ({
 
 const checkRateLimit = async () => {
   const response = await octokit.request('GET /rate_limit');
-  console.log("Limites API GitHub :", response.data.rate);
+	const rate = response.data.rate;
+
+	if (rate.remaining === 0) {
+		const resetTime = new Date(rate.reset * 1000).toLocaleString();
+		throw new Error(`API limit reached. Retry after ${resetTime}.`);
+	}
 };
 
 /**
@@ -112,32 +117,43 @@ const checkRateLimit = async () => {
  */
 export const fetchContributedForkedRepositories = async (
 	username: string
-): Promise<OpenSourceRepository[]> => {
-  await checkRateLimit();
-	const forkedRepos = await fetchForkedRepositories(username);
-	const contributedRepos: OpenSourceRepository[] = [];
+): Promise<{ success: boolean; data: OpenSourceRepository[] | null; message: string }> => {
+	try {
+		// Check rate limit before starting
+		await checkRateLimit();
 
-	for (const repo of forkedRepos) {
+		const forkedRepos = await fetchForkedRepositories(username);
+		const contributedRepos: OpenSourceRepository[] = [];
 
-		const repoDetails = await fetchRepositoryDetails(repo.owner.login, repo.name);
+		for (const repo of forkedRepos) {
+			await checkRateLimit(); // Check limit before each iteration
 
-		if (!repoDetails || !repoDetails.parent) {
-			continue;
-		}
+			const repoDetails = await fetchRepositoryDetails(repo.owner.login, repo.name).catch((error) => {
+				//console.error(`Erreur lors de la récupération des détails pour ${repo.full_name}`, error);
+				return null;
+			});
 
-		const parentRepo = repoDetails.parent;
+			if (!repoDetails || !repoDetails.parent) {
+				//console.log(`Aucun parent ou détails pour le dépôt ${repo.name}`);
+				continue;
+			}
 
-		const pulls = await fetchPullRequests(parentRepo.owner.login, parentRepo.name);
+			const parentRepo = repoDetails.parent;
 
-		// Find the first merged pull request made by the user
-		const mergedPull = pulls.find(
-			(pr: any) => pr.user.login === username && pr.merged_at !== null
-		);
+			await checkRateLimit(); // Check rate limit before fetching pull requests
+			const pulls = await fetchPullRequests(parentRepo.owner.login, parentRepo.name);
 
-		// Extract the date of the contribution if the PR has been merged
-		const contributionDate = mergedPull?.merged_at || null;
+			const mergedPull = pulls.find(
+				(pr: any) => pr.user.login === username && pr.merged_at !== null
+			);
 
-		if (mergedPull) {
+			if (!mergedPull) {
+				console.log(`Aucune PR fusionnée trouvée pour ${repo.name}`);
+				continue;
+			}
+
+			const contributionDate = mergedPull.merged_at;
+
 			contributedRepos.push(
 				mapToOpenSourceRepository({
 					...repoDetails,
@@ -145,7 +161,26 @@ export const fetchContributedForkedRepositories = async (
 				})
 			);
 		}
-	}
 
-	return contributedRepos;
+		return {
+			success: true,
+			data: contributedRepos,
+			message: "Contributions récupérées avec succès",
+		};
+	} catch (error: any) {
+		if (error.message.includes("API limit reached")) {
+			return {
+				success: false,
+				data: null,
+				message: "La limite API GitHub a été atteinte. Veuillez réessayer plus tard.",
+			};
+		}
+
+		console.error("Erreur lors de la récupération des dépôts contribué :", error.message);
+		return {
+			success: false,
+			data: null,
+			message: "Une erreur est survenue lors de la récupération des contributions.",
+		};
+	}
 };
