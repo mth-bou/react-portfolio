@@ -16,6 +16,22 @@
     },
     "sideProjectsCard": {
       "title": "Projets secondaires",
+      "imagesConverterProject": {
+        "title": "Convertisseur d'images",
+        "desc": "Application qui permet de convertir des images en différents formats. Développée avec Next.js, React, Typescript et Tailwind CSS."
+      },
+      "binanceTracking": {
+        "title": "Binance Tracking",
+        "desc": "Application connectée à l'API de Binance qui permet de suivre les performances de ses opérations. Développée avec Next.js, React, Typescript et Tailwind CSS."
+      },
+      "tradingJournalApi": {
+        "title": "Trading Journal API",
+        "desc": "API REST développée avec Nest.js qui sert des routes pour gérer un journal de trading."
+      },
+      "bookstoreMicroservices": {
+        "title": "Bookstore Microservices",
+        "desc": "Application Nest.js basée sur une architecture microservices, avec une API Gateway centralisant les appels aux services dédiés à la gestion d'utilisateurs et de livres."
+      },
       "symfonyProject": {
         "title": "Symfony Ecom App",
         "desc": "Pour tester et accroître mes compétences, je développe actuellement mon propre site e-commerce avec Symfony 7"

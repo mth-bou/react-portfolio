@@ -16,6 +16,22 @@
     },
     "sideProjectsCard": {
       "title": "Side projects",
+      "imagesConverterProject": {
+        "title": "Images Converter",
+        "desc": "Application that converts images into different formats. Developed with Next.js, React, Typescript and Tailwind CSS."
+      },
+      "binanceTracking": {
+        "title": "Binance Tracking",
+        "desc": "Application connected to the Binance API that allows you to track the performance of your operations. Developed with Next.js, React, Typescript and Tailwind CSS."
+      },
+      "tradingJournalApi": {
+        "title": "Trading Journal API",
+        "desc": "REST API developed with Nest.js that serves routes to manage a trading journal."
+      },
+      "bookstoreMicroservices": {
+        "title": "Bookstore Microservices",
+        "desc": "Nest.js application based on a microservices architecture, with an API Gateway centralizing calls to services dedicated to managing users and books."
+      },
       "symfonyProject": {
         "title": "Symfony Ecom App",
         "desc": "To test my skills, I created my own e-commerce site with Symfony 7"
@@ -49,24 +65,24 @@
   "Skills": {
     "title": "I like working on",
     "backend": {
-        "title": "Web backend development",
-        "desc": "I develop backend solutions solutions, designed for scalable, long-lasting software."
+      "title": "Web backend development",
+      "desc": "I develop backend solutions solutions, designed for scalable, long-lasting software."
     },
     "frontend": {
-        "title": "Web frontend development",
-        "desc": "I create dynamic, responsive and user-friendly interfaces optimized for a fluid and engaging user experience."
+      "title": "Web frontend development",
+      "desc": "I create dynamic, responsive and user-friendly interfaces optimized for a fluid and engaging user experience."
     },
     "automation": {
-        "title": "Automation",
-        "desc": "I love developing task automation that improve efficiency and productivity, while saving time for users."
+      "title": "Automation",
+      "desc": "I love developing task automation that improve efficiency and productivity, while saving time for users."
     },
     "data": {
-        "title": "Data processing",
-        "desc": "Extracting, manipulating, processing, analyzing and interpreting data are some of the components I enjoy."
+      "title": "Data processing",
+      "desc": "Extracting, manipulating, processing, analyzing and interpreting data are some of the components I enjoy."
     },
     "security": {
-        "title": "Security",
-        "desc": "As the security of digital systems is a fundamental concern, I make sure that the solutions I develop are protected."
+      "title": "Security",
+      "desc": "As the security of digital systems is a fundamental concern, I make sure that the solutions I develop are protected."
     }
   },
   "Contributions": {
