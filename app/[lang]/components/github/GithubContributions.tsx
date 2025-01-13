@@ -8,16 +8,18 @@ import { OpenSourceRepository } from "@/types/types";
 import ContributionSkeleton from "@/app/[lang]/components/github/ContributionSkeleton";
 
 const GithubContributions = ({ username, dict }: { username: string, dict: any }) => {
-  const [repos, setRepos] = useState<OpenSourceRepository[]>([]);
+  const [contributions, setContributions] = useState<OpenSourceRepository[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchOpenSourceContributions = async () => {
       try {
-        const contributions = await getContributions(username);
+        const data = await getContributions(username);
         //console.log(contributions);
-        setRepos(contributions);
+        setContributions(data);
       } catch (error) {
+        setError("Impossible de charger les contributions");
         console.error(error);
       } finally {
         setLoading(false);
@@ -37,8 +39,8 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
             {loading ? (
               <ContributionSkeleton />
             ) : (
-              repos.map(repo => (
-                <Contribution key={repo.id} {...repo} />
+              contributions.map(contribution => (
+                <Contribution key={contribution.id} {...contribution} />
               )
             ))}
           </div>

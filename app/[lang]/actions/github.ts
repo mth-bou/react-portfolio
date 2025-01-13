@@ -1,7 +1,14 @@
 'use server';
 
-import { fetchForkedRepositories } from "@/lib/github";
+import { fetchContributedForkedRepositories } from "@/lib/github";
 
 export const getContributions = async (username: string) => {
-  return await fetchForkedRepositories(username);
+  try {
+    const data = await fetchContributedForkedRepositories(username);
+    console.log("Contributions récupérées :", data);
+    return data;
+  } catch (error) {
+    console.error("Error while fetching contributions: ", error);
+    throw new Error("Error while fetching contributions");
+  }
 }
