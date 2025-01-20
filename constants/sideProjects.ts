@@ -32,6 +32,7 @@ export const SIDE_PROJECTS = (dict: any) => [
 		logo: faChartLine,
 		title : dict.Experiences.sideProjectsCard.tradingJournalApi.title,
 		description: dict.Experiences.sideProjectsCard.tradingJournalApi.desc,
+		url: "https://trading-journal-eei0.onrender.com/api"
 	},
 	{
 		logo: faHexagonNodes,
