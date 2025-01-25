@@ -22,6 +22,7 @@ export const SIDE_PROJECTS = (dict: any) => [
 		logo: faRotate,
 		title: dict.Experiences.sideProjectsCard.imagesConverterProject.title,
 		description: dict.Experiences.sideProjectsCard.imagesConverterProject.desc,
+		url: "https://imageconverterapp.vercel.app/"
 	},
 	{
 		logo: faChartSimple,
