@@ -13,10 +13,12 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const lang = dict._lang ?? "fr";
+
   useEffect(() => {
     const fetchOpenSourceContributions = async () => {
       try {
-        const result = await getContributions(username, dict._lang);
+        const result = await getContributions(username, lang);
 
         if (!result.success) {
           setError(result.message);
@@ -33,7 +35,7 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
     }
 
     fetchOpenSourceContributions();
-  }, [dict, username]);
+  }, [dict, lang, username]);
 
   return (
     <Section className="flex max-lg:flex-col items-start gap-4">
@@ -42,7 +44,7 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
           <p className="text-base lg:text-lg text-muted-foreground mb-2">{dict.Contributions.title}</p>
 
           {error && (
-            <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-md mb-4">
+            <div className="p-4 bg-red-100 text-red-700 rounded-md mb-4">
               <p className="text-sm md:text-base font-semibold">{dict.Contributions.errorTitle}</p>
               <p className="text-sm md:text-base">{error}</p>
             </div>

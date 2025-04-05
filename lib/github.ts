@@ -19,7 +19,13 @@ export const fetchForkedRepositories = async (username: string): Promise<any[]> 
 	return response.data.filter((repo: any) => repo.fork && !repo.disabled);
 }
 
-export const fetchRepositoryDetails = async (owner: string, repo: string): Promise<any> => {
+export const fetchRepositoryDetails = async (
+	owner: string,
+	repo: string,
+	lang: "fr" | "en" = "fr"
+): Promise<any> => {
+	const t = githubErrors[lang];
+
 	try {
 		const response = await octokit.request('GET /repos/{owner}/{repo}', {
 			owner,
@@ -51,9 +57,9 @@ export const fetchRepositoryDetails = async (owner: string, repo: string): Promi
 				}
 				: null,
 		};
-	} catch (error) {
+	} catch (error: any) {
 		console.error(`Error retrieving repository details ${owner}/${repo} :`, error);
-		throw Error(`Error retrieving repository details ${owner}/${repo}: ${error}`);
+		throw Error(t.fetchDetails(repo, owner, error.message));
 	}
 };
 
@@ -132,7 +138,14 @@ export const fetchContributedForkedRepositories = async (
 		for (const repo of forkedRepos) {
 			await checkRateLimit(); // Check limit before each iteration
 
-			const repoDetails = await fetchRepositoryDetails(repo.owner.login, repo.name).catch(() => null);
+			const repoDetails = await fetchRepositoryDetails(
+				repo.owner.login,
+				repo.name,
+				lang
+			).catch((error) => {
+				console.warn(error.message);
+				return null;
+			});
 
 			if (!repoDetails || !repoDetails.parent) {
 				//console.log(`Aucun parent ou détails pour le dépôt ${repo.name}`);
