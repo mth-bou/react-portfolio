@@ -1,5 +1,6 @@
 import { Octokit } from "octokit";
 import { OpenSourceRepository } from "@/types/types";
+import { githubErrors } from "@/lib/i18n/errors";
 
 const octokit = new Octokit({
 	auth: process.env.GITHUB_TOKEN,
@@ -51,8 +52,8 @@ export const fetchRepositoryDetails = async (owner: string, repo: string): Promi
 				: null,
 		};
 	} catch (error) {
-		console.error(`Erreur lors de la récupération des détails du dépôt ${owner}/${repo} :`, error);
-		throw Error(`Erreur lors de la récupération des détails du dépôt ${owner}/${repo}: ${error}`);
+		console.error(`Error retrieving repository details ${owner}/${repo} :`, error);
+		throw Error(`Error retrieving repository details ${owner}/${repo}: ${error}`);
 	}
 };
 
@@ -70,12 +71,12 @@ export const fetchPullRequests = async (owner: string, repo: string): Promise<an
 			},
 		});
 
-    //console.log(`Pull Requests pour ${owner}/${repo} :`, response.data);
+		//console.log(`Pull Requests pour ${owner}/${repo} :`, response.data);
 		return response.data;
 	} catch (error) {
-    console.error(`Error while fetching pull requests for ${owner}/${repo}:`, error);
-    return [];
-  }
+		console.error(`Error while fetching pull requests for ${owner}/${repo}:`, error);
+		return [];
+	}
 
 }
 
@@ -103,7 +104,7 @@ const mapToOpenSourceRepository = (repo: any): OpenSourceRepository => ({
 });
 
 const checkRateLimit = async () => {
-  const response = await octokit.request('GET /rate_limit');
+	const response = await octokit.request('GET /rate_limit');
 	const rate = response.data.rate;
 
 	if (rate.remaining === 0) {
@@ -116,8 +117,11 @@ const checkRateLimit = async () => {
  * Retrieve the repositories that the user has contributed to by forking and merging pull requests
  */
 export const fetchContributedForkedRepositories = async (
-	username: string
+	username: string,
+	lang: "fr" | "en" = "fr"
 ): Promise<{ success: boolean; data: OpenSourceRepository[] | null; message: string }> => {
+	const t = githubErrors[lang];
+
 	try {
 		// Check rate limit before starting
 		await checkRateLimit();
@@ -128,10 +132,7 @@ export const fetchContributedForkedRepositories = async (
 		for (const repo of forkedRepos) {
 			await checkRateLimit(); // Check limit before each iteration
 
-			const repoDetails = await fetchRepositoryDetails(repo.owner.login, repo.name).catch((error) => {
-				//console.error(`Erreur lors de la récupération des détails pour ${repo.full_name}`, error);
-				return null;
-			});
+			const repoDetails = await fetchRepositoryDetails(repo.owner.login, repo.name).catch(() => null);
 
 			if (!repoDetails || !repoDetails.parent) {
 				//console.log(`Aucun parent ou détails pour le dépôt ${repo.name}`);
@@ -148,7 +149,7 @@ export const fetchContributedForkedRepositories = async (
 			);
 
 			if (!mergedPull) {
-				console.log(`Aucune PR fusionnée trouvée pour ${repo.name}`);
+				// No merged PR found
 				continue;
 			}
 
@@ -165,22 +166,22 @@ export const fetchContributedForkedRepositories = async (
 		return {
 			success: true,
 			data: contributedRepos,
-			message: "Contributions récupérées avec succès",
+			message: "OK",
 		};
 	} catch (error: any) {
 		if (error.message.includes("API limit reached")) {
 			return {
 				success: false,
 				data: null,
-				message: "La limite API GitHub a été atteinte. Veuillez réessayer plus tard.",
+				message: t.rateLimit,
 			};
 		}
 
-		console.error("Erreur lors de la récupération des dépôts contribué :", error.message);
+		console.error("Error when retrieving contributed repos: ", error.message);
 		return {
 			success: false,
 			data: null,
-			message: "Une erreur est survenue lors de la récupération des contributions.",
+			message: t.generic,
 		};
 	}
 };

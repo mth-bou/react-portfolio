@@ -1,4 +1,5 @@
 {
+  "_lang": "fr",
   "Home": {
     "title": "Home",
     "description": "Welcome to the home page"
@@ -86,7 +87,9 @@
     }
   },
   "Contributions": {
-    "title": "Mes contributions Open Source"
+    "title": "Mes contributions Open Source",
+    "errorTitle": "Erreur :",
+    "unexpectedErrorMessage": "Une erreur inattendue s'est produite lors de la récupération des contributions."
   },
   "Stack": {
     "title": "Ma stack technique"

@@ -16,7 +16,7 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
   useEffect(() => {
     const fetchOpenSourceContributions = async () => {
       try {
-        const result = await getContributions(username);
+        const result = await getContributions(username, dict._lang);
 
         if (!result.success) {
           setError(result.message);
@@ -26,14 +26,14 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
         }
       } catch (error) {
         console.error(error);
-        setError("Erreur inattendue. Impossible de charger les contributions");
+        setError(dict.Contributions.unexpectedErrorMessage);
       } finally {
         setLoading(false);
       }
     }
 
     fetchOpenSourceContributions();
-  }, [username]);
+  }, [dict, username]);
 
   return (
     <Section className="flex max-lg:flex-col items-start gap-4">
@@ -43,7 +43,7 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
 
           {error && (
             <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-md mb-4">
-              <p className="text-sm md:text-base font-semibold">Erreur :</p>
+              <p className="text-sm md:text-base font-semibold">{dict.Contributions.errorTitle}</p>
               <p className="text-sm md:text-base">{error}</p>
             </div>
           )}

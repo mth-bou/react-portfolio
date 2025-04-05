@@ -1,4 +1,5 @@
 {
+  "_lang": "en",
   "Home": {
     "title": "Home",
     "description": "Welcome to the home page"
@@ -86,7 +87,9 @@
     }
   },
   "Contributions": {
-    "title": "My Open Source contributions"
+    "title": "My Open Source contributions",
+    "errorTitle": "Error:",
+    "unexpectedErrorMessage": "An unexpected error occurred while fetching the contributions."
   },
   "Stack": {
     "title": "My stack"
