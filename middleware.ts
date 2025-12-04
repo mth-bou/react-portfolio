@@ -1,12 +1,9 @@
 import { match } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
-import {NextRequest, NextResponse} from "next/server";
-
-let headers = { 'accept-language': 'fr-FR,fr;q=0.5' }
-let languages = new Negotiator({ headers }).languages()
+import { NextRequest, NextResponse } from "next/server";
 
 import { defaultLocale } from '@/constants/locales';
-import { i18n} from "@/i18n-config";
+import { i18n } from "@/i18n-config";
 
 export function middleware(request: NextRequest) {
     // Check if there is any supported locale in the pathname
@@ -27,8 +24,15 @@ export function middleware(request: NextRequest) {
     );
 
     if (pathnameIsMissingLocale) {
+        const negotiatorHeaders = {
+            'accept-language': request.headers.get('accept-language') || ''
+        }
+
+        const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
+        const locale = match(languages, i18n.locales, defaultLocale)
+
         return NextResponse.rewrite(
-            new URL(`/${defaultLocale}${pathname}${request.nextUrl.search}`, request.nextUrl.href)
+            new URL(`/${locale}${pathname}${request.nextUrl.search}`, request.nextUrl.href)
         );
     }
 }

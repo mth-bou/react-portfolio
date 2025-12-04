@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,7 @@ import { WelcomeConsoleMessage } from "@/app/[lang]/components/WelcomeConsoleMes
 import { ReactNode } from "react";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Locale, i18n } from "@/i18n-config";
 
 const NotoSans = Noto_Sans({
     subsets: ["latin"],
@@ -20,19 +21,19 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-    return [{ lang: 'fr' }, { lang: 'en' }];
+    return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
 type RootLayoutProps = {
     children: ReactNode;
-    params: Promise<{ lang: string }>;
+    params: { lang: Locale };
 }
 
 export default async function RootLayout({
     children,
     params
 }: Readonly<RootLayoutProps>) {
-    const { lang } = await params;
+    const { lang } = params;
     return (
         <html lang={lang} className="h-full">
             <body className={cn(

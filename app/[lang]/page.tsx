@@ -8,10 +8,12 @@ import Tools from "@/app/[lang]/components/Tools";
 import Footer from "@/app/[lang]/components/Footer";
 // import Contact from "@/app/_components/Contact";
 import { getDictionary } from "@/app/[lang]/dictionaries";
-import GithubContributions from "@/app/[lang]/components/github/GithubContributions";
+import GithubContributions, { GithubContributionsSkeleton } from "@/app/[lang]/components/github/GithubContributions";
+import { Locale } from "@/i18n-config";
+import { Suspense } from "react";
 
-export default async function Home({ params }: any){
-  const { lang } = await params;
+export default async function Home({ params }: { params: { lang: Locale } }){
+  const { lang } = params;
   const dict = await getDictionary(lang);
   const githubUsername = "mth-bou";
   return (
@@ -22,7 +24,9 @@ export default async function Home({ params }: any){
       <Spacing size="md"/>
       <Experiences dict={dict}/>
       <Spacing size="md"/>
-      <GithubContributions username={githubUsername} dict={dict}/>
+      <Suspense fallback={<GithubContributionsSkeleton dict={dict} />}>
+        <GithubContributions username={githubUsername} dict={dict}/>
+      </Suspense>
       <Spacing size="md"/>
       <Skills dict={dict}/>
       <Spacing size="md"/>

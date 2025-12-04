@@ -1,41 +1,33 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import { getContributions } from "@/app/[lang]/actions/github";
+import { defaultLocale } from "@/constants/locales";
 import Section from "@/app/[lang]/components/Section";
 import { Card } from "@/components/ui/card";
 import Contribution from "@/app/[lang]/components/github/Contribution";
 import { OpenSourceRepository } from "@/types/types";
 import ContributionSkeleton from "@/app/[lang]/components/github/ContributionSkeleton";
+import { fetchContributedForkedRepositories } from "@/lib/github";
+import { Dictionary } from "@/app/[lang]/dictionaries";
+import { Locale, i18n } from "@/i18n-config";
 
-const GithubContributions = ({ username, dict }: { username: string, dict: any }) => {
-  const [contributions, setContributions] = useState<OpenSourceRepository[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+type GithubContributionsProps = {
+  username: string;
+  dict: Dictionary;
+};
 
-  const lang = dict._lang ?? "fr";
+const GithubContributions = async ({ username, dict }: GithubContributionsProps) => {
+  const lang: Locale = i18n.locales.includes(dict._lang as Locale)
+    ? (dict._lang as Locale)
+    : defaultLocale;
 
-  useEffect(() => {
-    const fetchOpenSourceContributions = async () => {
-      try {
-        const result = await getContributions(username, lang);
+  const { success, data, message } = await fetchContributedForkedRepositories(username, lang).catch(
+    (error: Error) => ({
+      success: false,
+      data: null,
+      message: dict.Contributions.unexpectedErrorMessage ?? error.message,
+    })
+  );
 
-        if (!result.success) {
-          setError(result.message);
-          setContributions([]);
-        } else {
-          setContributions(result.data || []);
-        }
-      } catch (error) {
-        console.error(error);
-        setError(dict.Contributions.unexpectedErrorMessage);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchOpenSourceContributions();
-  }, [dict, lang, username]);
+  const contributions = (data ?? []) as OpenSourceRepository[];
+  const error = success ? "" : message;
 
   return (
     <Section className="flex max-lg:flex-col items-start gap-4">
@@ -51,19 +43,27 @@ const GithubContributions = ({ username, dict }: { username: string, dict: any }
           )}
 
           <div className="flex flex-col gap-4">
-            {loading ? (
-              <ContributionSkeleton />
-            ) : (
-              contributions.map(contribution => (
-                <Contribution key={contribution.id} {...contribution} />
-              )
+            {contributions.map((contribution) => (
+              <Contribution key={contribution.id} {...contribution} />
             ))}
           </div>
-
         </Card>
       </div>
     </Section>
   );
 };
+
+export const GithubContributionsSkeleton = ({ dict }: { dict: Dictionary }) => (
+  <Section className="flex max-lg:flex-col items-start gap-4">
+    <div className="flex-[2] w-full h-full flex flex-col gap-4">
+      <Card className="flex flex-col p-4 w-full gap-2">
+        <p className="text-base lg:text-lg text-muted-foreground mb-2">{dict.Contributions.title}</p>
+        <div className="flex flex-col gap-4">
+          <ContributionSkeleton />
+        </div>
+      </Card>
+    </div>
+  </Section>
+);
 
 export default GithubContributions;

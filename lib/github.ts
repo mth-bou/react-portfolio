@@ -2,6 +2,12 @@ import { Octokit } from "octokit";
 import { OpenSourceRepository } from "@/types/types";
 import { githubErrors } from "@/lib/i18n/errors";
 
+const CONTRIBUTIONS_CACHE_TTL_MS = 1000 * 60 * 60; // 1 hour
+const contributionsCache = new Map<string, {
+        expiresAt: number;
+        payload: { success: boolean; data: OpenSourceRepository[] | null; message: string };
+}>();
+
 const octokit = new Octokit({
 	auth: process.env.GITHUB_TOKEN,
 });
@@ -123,25 +129,30 @@ const checkRateLimit = async () => {
  * Retrieve the repositories that the user has contributed to by forking and merging pull requests
  */
 export const fetchContributedForkedRepositories = async (
-	username: string,
-	lang: "fr" | "en" = "fr"
+        username: string,
+        lang: "fr" | "en" = "fr"
 ): Promise<{ success: boolean; data: OpenSourceRepository[] | null; message: string }> => {
-	const t = githubErrors[lang];
+        const t = githubErrors[lang];
 
-	try {
-		// Check rate limit before starting
-		await checkRateLimit();
+        const cacheKey = `${username}-${lang}`;
+        const cachedValue = contributionsCache.get(cacheKey);
+
+        if (cachedValue && cachedValue.expiresAt > Date.now()) {
+                return cachedValue.payload;
+        }
+
+        try {
+                // Check rate limit before starting
+                await checkRateLimit();
 
 		const forkedRepos = await fetchForkedRepositories(username);
 		const contributedRepos: OpenSourceRepository[] = [];
 
-		for (const repo of forkedRepos) {
-			await checkRateLimit(); // Check limit before each iteration
-
-			const repoDetails = await fetchRepositoryDetails(
-				repo.owner.login,
-				repo.name,
-				lang
+                for (const repo of forkedRepos) {
+                        const repoDetails = await fetchRepositoryDetails(
+                                repo.owner.login,
+                                repo.name,
+                                lang
 			).catch((error) => {
 				console.warn(error.message);
 				return null;
@@ -152,12 +163,10 @@ export const fetchContributedForkedRepositories = async (
 				continue;
 			}
 
-			const parentRepo = repoDetails.parent;
+                        const parentRepo = repoDetails.parent;
+                        const pulls = await fetchPullRequests(parentRepo.owner.login, parentRepo.name);
 
-			await checkRateLimit(); // Check rate limit before fetching pull requests
-			const pulls = await fetchPullRequests(parentRepo.owner.login, parentRepo.name);
-
-			const mergedPull = pulls.find(
+                        const mergedPull = pulls.find(
 				(pr: any) => pr.user.login === username && pr.merged_at !== null
 			);
 
@@ -168,22 +177,29 @@ export const fetchContributedForkedRepositories = async (
 
 			const contributionDate = mergedPull.merged_at;
 
-			contributedRepos.push(
-				mapToOpenSourceRepository({
-					...repoDetails,
-					contribution_date: contributionDate,
-				})
-			);
-		}
+                        contributedRepos.push(
+                                mapToOpenSourceRepository({
+                                        ...repoDetails,
+                                        contribution_date: contributionDate,
+                                })
+                        );
+                }
 
-		return {
-			success: true,
-			data: contributedRepos,
-			message: "OK",
-		};
-	} catch (error: any) {
-		if (error.message.includes("API limit reached")) {
-			return {
+                const payload = {
+                        success: true,
+                        data: contributedRepos,
+                        message: "OK",
+                };
+
+                contributionsCache.set(cacheKey, {
+                        expiresAt: Date.now() + CONTRIBUTIONS_CACHE_TTL_MS,
+                        payload,
+                });
+
+                return payload;
+        } catch (error: any) {
+                if (error.message.includes("API limit reached")) {
+                        return {
 				success: false,
 				data: null,
 				message: t.rateLimit,
