@@ -1,6 +1,7 @@
 import { Octokit } from "octokit";
 import { OpenSourceRepository } from "@/types/types";
 import { githubErrors } from "@/lib/i18n/errors";
+import { Locale } from "@/i18n-config";
 
 const CONTRIBUTIONS_CACHE_TTL_MS = 1000 * 60 * 60; // 1 hour
 const contributionsCache = new Map<string, {
@@ -26,9 +27,9 @@ export const fetchForkedRepositories = async (username: string): Promise<any[]> 
 }
 
 export const fetchRepositoryDetails = async (
-	owner: string,
-	repo: string,
-	lang: "fr" | "en" = "fr"
+        owner: string,
+        repo: string,
+        lang: Locale = "fr"
 ): Promise<any> => {
 	const t = githubErrors[lang];
 
@@ -130,7 +131,7 @@ const checkRateLimit = async () => {
  */
 export const fetchContributedForkedRepositories = async (
         username: string,
-        lang: "fr" | "en" = "fr"
+        lang: Locale = "fr"
 ): Promise<{ success: boolean; data: OpenSourceRepository[] | null; message: string }> => {
         const t = githubErrors[lang];
 

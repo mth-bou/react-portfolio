@@ -1,5 +1,3 @@
-const locales = [{locale: "fr"}, {locale: "en"}];
+export const locales = ["fr", "en"] as const;
 
-const defaultLocale = "fr";
-
-export { locales, defaultLocale };
+export const defaultLocale = locales[0];
