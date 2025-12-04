@@ -13,11 +13,11 @@ import { Locale } from "@/i18n-config";
 import { Suspense } from "react";
 
 type HomePageProps = {
-  params: Promise<{ lang: Locale }>;
+  params: { lang: Locale };
 };
 
 export default async function Home({ params }: HomePageProps){
-  const { lang } = await params;
+  const { lang } = params;
   const dict = await getDictionary(lang);
   const githubUsername = "mth-bou";
   return (
