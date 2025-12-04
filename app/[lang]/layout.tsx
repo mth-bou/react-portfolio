@@ -26,14 +26,14 @@ export async function generateStaticParams() {
 
 type RootLayoutProps = {
     children: ReactNode;
-    params: { lang: Locale };
+    params: Promise<{ lang: Locale }>;
 }
 
 export default async function RootLayout({
     children,
     params
 }: Readonly<RootLayoutProps>) {
-    const { lang } = params;
+    const { lang } = await params;
     return (
         <html lang={lang} className="h-full">
             <body className={cn(
