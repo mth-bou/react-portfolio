@@ -12,8 +12,12 @@ import GithubContributions, { GithubContributionsSkeleton } from "@/app/[lang]/c
 import { Locale } from "@/i18n-config";
 import { Suspense } from "react";
 
-export default async function Home({ params }: { params: { lang: Locale } }){
-  const { lang } = params;
+type HomePageProps = {
+  params: Promise<{ lang: Locale }>;
+};
+
+export default async function Home({ params }: HomePageProps){
+  const { lang } = await params;
   const dict = await getDictionary(lang);
   const githubUsername = "mth-bou";
   return (
