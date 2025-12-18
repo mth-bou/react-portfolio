@@ -27,7 +27,7 @@
     "geist": "^1.5.1",
     "lucide-react": "^0.469.0",
     "negotiator": "^1.0.0",
-    "next": "^15.5.7",
+    "next": "^15.5.9",
     "octokit": "^4.1.4",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
